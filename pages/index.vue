@@ -25,8 +25,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Business Process Management -->
           <div class="flex flex-col items-center">
-            <img src="business-process-management-icon.png" alt="Business Process Management Icon"
-              class="w-20 h-20 mb-4" />
+            <!-- <img src="business-process-management-icon.png" alt="Business Process Management Icon"
+              class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold text-center mb-2">
               Business Process Management
             </h3>
@@ -38,7 +38,7 @@
 
           <!-- Workflow Automation using Programming -->
           <div class="flex flex-col items-center">
-            <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold text-center mb-2">
               Workflow Automation using Programming
             </h3>
@@ -50,7 +50,7 @@
 
           <!-- IT Support -->
           <div class="flex flex-col items-center">
-            <img src="it-support-icon.png" alt="IT Support Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="it-support-icon.png" alt="IT Support Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">IT Support</h3>
             <p class="text-center">
               Rely on our experienced team to provide comprehensive IT support
@@ -60,7 +60,7 @@
 
           <!-- AI Consulting -->
           <div class="flex flex-col items-center">
-            <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
             <p class="text-center">
               Leverage artificial intelligence to drive innovation and unlock
@@ -84,7 +84,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Over 30 Years of IT Experience -->
           <div class="flex flex-col items-center">
-            <img src="experience-icon.png" alt="Experience Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="experience-icon.png" alt="Experience Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">
               Over 30 Years of IT Experience
             </h3>
@@ -96,7 +96,7 @@
 
           <!-- Clear, Jargon-Free Communication -->
           <div class="flex flex-col items-center">
-            <img src="communication-icon.png" alt="Communication Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="communication-icon.png" alt="Communication Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">
               Clear, Jargon-Free Communication
             </h3>
@@ -108,7 +108,7 @@
 
           <!-- Patient and Empathetic Approach -->
           <div class="flex flex-col items-center">
-            <img src="empathy-icon.png" alt="Empathy Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="empathy-icon.png" alt="Empathy Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">
               Patient and Empathetic Approach
             </h3>
@@ -120,7 +120,7 @@
 
           <!-- Customised Solutions for Your Unique Needs -->
           <div class="flex flex-col items-center">
-            <img src="custom-solutions-icon.png" alt="Custom Solutions Icon" class="w-20 h-20 mb-4" />
+            <!-- <img src="custom-solutions-icon.png" alt="Custom Solutions Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold mb-2">
               Customised Solutions for Your Unique Needs
             </h3>
@@ -139,9 +139,9 @@
           AI Consulting for Improved Workflow and Productivity
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+          <!-- <div>
             <img src="ai-consulting-banner.png" alt="AI Consulting Banner" class="w-full h-auto" />
-          </div>
+          </div> -->
           <div class="flex flex-col justify-center">
             <p class="mb-6">
               Our AI consulting services help businesses leverage the power of
