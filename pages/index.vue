@@ -1,21 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
-    <header v-show="headerVisible" class="sticky bg-deep-blue p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <div class="text-white text-xl font-bold">Digital Sanctum</div>
-        <nav>
-          <ul class="flex space-x-4">
-            <li><a href="#" class="text-white">Home</a></li>
-            <li><a href="#" class="text-white">Services</a></li>
-            <li><a href="#" class="text-white">AI Consulting</a></li>
-            <li><a href="#" class="text-white">About Us</a></li>
-            <li><a href="#" class="text-white">Testimonials</a></li>
-            <li><a href="#" class="text-white">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero-section p-8 flex items-center justify-center text-white"
@@ -149,7 +133,7 @@
       </div>
     </section>
     <!-- AI Consulting for Improved Workflow and Productivity -->
-    <section class="py-16 bg-gray-100">
+    <section id="ai-consulting" class="py-16 bg-gray-100">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12">
           AI Consulting for Improved Workflow and Productivity
@@ -192,7 +176,7 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-16">
+    <section id="contact" class="py-16">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl font-bold mb-6">
           Ready to Transform Your Business?
