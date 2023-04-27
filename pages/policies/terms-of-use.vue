@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-4 py-8 prose">
+    <div class="container mx-auto px-4 py-8 prose lg:max-w-prose">
         <h1 class="text-4xl font-bold mb-6">Terms of Use</h1>
 
         <h2 class="mt-3">1. Introduction</h2>
