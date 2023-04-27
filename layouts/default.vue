@@ -120,7 +120,11 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style>
+<style scoped>
+.router-link-exact-active {
+    color: white;
+}
+
 .sticky {
     position: sticky;
     top: 0;
