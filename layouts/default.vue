@@ -30,8 +30,8 @@
                     <!-- Company Information -->
                     <div>
                         <h3 class="text-xl font-bold mb-4">Digital Sanctum</h3>
-                        <p>123 Main Street, Suite 101</p>
-                        <p>Anytown, USA 12345</p>
+                        <p>55 Baker Ave</p>
+                        <p>Kew East VIC 3102</p>
                         <p>Phone: (555) 123-4567</p>
                         <p>Email: info@digitalsanctum.com</p>
                     </div>
