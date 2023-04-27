@@ -80,7 +80,7 @@
                 <div class="text-center text-white text-sm">
                     <p>&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
                     <p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                        <a href="/legal/terms-of-use" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
                         |
                         <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Service</a>
                     </p>
@@ -91,11 +91,21 @@
 </template>
 
 <script setup lang="ts">
-const headerVisible = ref(false);
+const route = useRoute();
+
+const headerVisible = ref(true);
+
+if (route.path === '/') {
+    const headerVisible = ref(false);
+}
 
 const handleScroll = () => {
-    if (window.scrollY === 0) {
-        headerVisible.value = false;
+    if (route.path === '/') {
+        if (window.scrollY === 0) {
+            headerVisible.value = false;
+        } else {
+            headerVisible.value = true;
+        }
     } else {
         headerVisible.value = true;
     }
