@@ -37,7 +37,7 @@
                     </div>
 
                     <!-- Social Media Icons -->
-                    <div class="flex flex-col md:col-span-2 lg:col-span-1">
+                    <!-- <div class="flex flex-col md:col-span-2 lg:col-span-1">
                         <h3 class="text-xl font-bold mb-4">Connect with Us</h3>
                         <div class="flex space-x-4">
                             <a href="https://www.facebook.com/DigitalSanctum" target="_blank" rel="noopener noreferrer"><img
@@ -48,7 +48,7 @@
                                 rel="noopener noreferrer"><img src="linkedin-icon.png" alt="LinkedIn Icon"
                                     class="w-8 h-8" /></a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Quick Links -->
                     <div>
