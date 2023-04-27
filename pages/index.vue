@@ -92,9 +92,9 @@
       </div>
     </section>
     <!-- Why Choose Digital Sanctum? -->
-    <section class="py-16 bg-vibrant-red text-white">
+    <section class="bg-silver py-16 text-center">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12">
+        <h2 class="text-4xl font-bold mb-12">
           Why Choose Digital Sanctum?
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -104,7 +104,7 @@
             <h3 class="text-2xl font-semibold mb-2">
               Over 30 Years of IT Experience
             </h3>
-            <p class="text-center">
+            <p>
               Our team has decades of experience in the IT industry, ensuring
               the highest quality services for your organization.
             </p>
@@ -116,7 +116,7 @@
             <h3 class="text-2xl font-semibold mb-2">
               Clear, Jargon-Free Communication
             </h3>
-            <p class="text-center">
+            <p>
               We prioritise clear and concise communication, making complex
               technical concepts easy to understand for everyone.
             </p>
@@ -128,19 +128,19 @@
             <h3 class="text-2xl font-semibold mb-2">
               Patient and Empathetic Approach
             </h3>
-            <p class="text-center">
+            <p>
               We take the time to understand your unique needs and provide
               patient guidance throughout our collaboration.
             </p>
           </div>
 
-          <!-- Customized Solutions for Your Unique Needs -->
+          <!-- Customised Solutions for Your Unique Needs -->
           <div class="flex flex-col items-center">
             <img src="custom-solutions-icon.png" alt="Custom Solutions Icon" class="w-20 h-20 mb-4" />
             <h3 class="text-2xl font-semibold mb-2">
-              Customized Solutions for Your Unique Needs
+              Customised Solutions for Your Unique Needs
             </h3>
-            <p class="text-center">
+            <p>
               We create tailored solutions designed specifically to address the
               challenges and opportunities facing your business.
             </p>
@@ -171,6 +171,13 @@
               improve decision-making, and uncover hidden patterns in your data.
             </p>
             <p class="mb-6">
+              We also specialise in prompt engineering, a technique used to improve
+              the performance and efficiency of AI language models. By crafting
+              effective prompts, we can ensure that your AI-driven solutions
+              generate more accurate and relevant responses, ultimately enhancing
+              your business operations.
+            </p>
+            <p class="mb-6">
               Whether you're a small business or a large enterprise, our AI
               consultants can guide you through the process of adopting AI
               technologies, ensuring a seamless integration with your existing
@@ -183,6 +190,7 @@
         </div>
       </div>
     </section>
+
     <!-- Call to Action -->
     <section class="py-16">
       <div class="container mx-auto px-4 text-center">
