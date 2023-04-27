@@ -80,7 +80,7 @@
                 <div class="text-center text-white text-sm">
                     <p>&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
                     <p>
-                        <a href="/legal/terms-of-use" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                        <a href="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
                         |
                         <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Service</a>
                     </p>
