@@ -5,14 +5,20 @@
             <div class="container mx-auto flex items-center justify-between">
                 <div class="text-white text-xl font-bold">Digital Sanctum</div>
                 <nav>
-                    <ul class="flex space-x-4">
-                        <NuxtLink to="/">Home</NuxtLink>
+                    <ul v-if="route.path === '/'" class="flex space-x-4">
+                        <NuxtLink to="/" class="text-white">Home</NuxtLink>
                         <NuxtLink to="#our-services" class="text-white">Services</NuxtLink>
 
                         <NuxtLink to="#ai-consulting" class="text-white">AI Consulting</NuxtLink>
                         <li><a href="#" class="text-white">About Us</a></li>
                         <!-- <li><a href="#" class="text-white">Testimonials</a></li> -->
                         <NuxtLink to="#contact" class="text-white">Contact</NuxtLink>
+                    </ul>
+                    <ul v-if="route.path.includes('/policies')" class="flex space-x-4">
+                        <NuxtLink to="/" class="text-white">Home</NuxtLink>
+                        <NuxtLink to="/policies/terms-of-use" class="text-white">Terms of Use</NuxtLink>
+
+                        <NuxtLink to="/policies/privacy" class="text-white">Privacy Policy</NuxtLink>
                     </ul>
                 </nav>
             </div>
@@ -80,9 +86,9 @@
                 <div class="text-center text-white text-sm">
                     <p>&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
                     <p>
-                        <a href="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                        <a href="/policies/privacy" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
                         |
-                        <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Service</a>
+                        <a href="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">Terms of Service</a>
                     </p>
                 </div>
             </div>
