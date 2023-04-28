@@ -133,7 +133,7 @@
       </div>
     </section>
     <!-- AI Consulting for Improved Workflow and Productivity -->
-    <section id="ai-consulting" class="py-16 bg-gray-100">
+    <section id="ai-consulting" class="py-16 bg-gray-100" :style="{ backgroundImage: `url(${aiImg})` }">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12">
           AI Consulting for Improved Workflow and Productivity
@@ -195,6 +195,7 @@
 
 <script setup lang="ts">
 import heroImg from '~/assets/images/hero.jpg'
+import aiImg from '~/assets/images/ds-abstract-services.png'
 
 const headerVisible = ref(false);
 
