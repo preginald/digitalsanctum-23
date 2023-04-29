@@ -4,9 +4,11 @@
     <!-- Hero Section -->
     <section class="hero-section p-8 flex items-center justify-center text-white"
       :style="{ backgroundImage: `url(${heroImg})` }">
-      <div class="container mx-auto">
-        <h1 class="text-3xl font-bold">
-          Transform Your Business with Digital Sanctum
+      <div class="container mx-auto  px-4 sm:max-w-screen-md">
+        <h1
+          class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <span class="text-blue-600 dark:text-blue-500">Transform Your Business
+          </span>with Digital Sanctum
         </h1>
         <h2 class="text-xl mt-4">
           Unlock your organisation's full potential through expert IT solutions
