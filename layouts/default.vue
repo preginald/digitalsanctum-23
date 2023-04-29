@@ -21,6 +21,9 @@
                         <NuxtLink to="/policies/privacy" class="text-white">Privacy Policy</NuxtLink>
                     </ul>
                 </nav>
+                <div>
+                    <button @click="toggleTheme">Toggle Theme</button>
+                </div>
             </div>
         </header>
 
@@ -105,16 +108,10 @@ if (route.path === '/') {
     const headerVisible = ref(false);
 }
 
-const setTheme = (theme: string) => {
-    if (process.client) {
-        if (theme === 'light') {
-            localStorage.theme = 'light'
-        } else if (theme === 'dark') {
-            localStorage.theme = 'dark'
-        } else {
-            localStorage.removeItem('theme')
-        }
-    }
+const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+
 }
 
 const handleScroll = () => {
@@ -131,11 +128,13 @@ const handleScroll = () => {
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (process.client && (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
-        document.documentElement.classList.add('dark')
+    const savedTheme = localStorage.getItem('theme');
+    const defaultTheme = savedTheme ? savedTheme : 'dark';
+
+    if (defaultTheme === 'dark') {
+        document.documentElement.classList.add('dark');
     } else {
-        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
     }
 });
 
