@@ -10,7 +10,7 @@
                         <NuxtLink to="#our-services" class="text-white">Services</NuxtLink>
 
                         <NuxtLink to="#ai-consulting" class="text-white">AI Consulting</NuxtLink>
-                        <li><a href="#" class="text-white">About Us</a></li>
+                        <!-- <li><a href="#" class="text-white">About Us</a></li> -->
                         <!-- <li><a href="#" class="text-white">Testimonials</a></li> -->
                         <NuxtLink to="#contact" class="text-white">Contact</NuxtLink>
                     </ul>
@@ -105,6 +105,18 @@ if (route.path === '/') {
     const headerVisible = ref(false);
 }
 
+const setTheme = (theme: string) => {
+    if (process.client) {
+        if (theme === 'light') {
+            localStorage.theme = 'light'
+        } else if (theme === 'dark') {
+            localStorage.theme = 'dark'
+        } else {
+            localStorage.removeItem('theme')
+        }
+    }
+}
+
 const handleScroll = () => {
     if (route.path === '/') {
         if (window.scrollY === 0) {
@@ -119,6 +131,12 @@ const handleScroll = () => {
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (process.client && (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
 });
 
 onBeforeUnmount(() => {
