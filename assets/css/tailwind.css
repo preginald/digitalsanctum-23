@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+
+    /* Primary Button */
+    .btn-primary {
+        @apply bg-electric-blue-light text-white py-2 px-4 rounded;
+    }
+
+    .btn-primary:hover {
+        @apply bg-electric-blue-dark text-white;
+    }
+
+    .btn-primary:focus {
+        @apply outline-none ring-2 ring-offset-2 ring-electric-blue-light;
+    }
+
+    .btn-primary.dark {
+        @apply bg-electric-blue-dark text-white;
+    }
+
+    .btn-primary.dark:hover {
+        @apply bg-electric-blue-light text-charcoal-light;
+    }
+
+    .btn-primary.dark:focus {
+        @apply ring-electric-blue-dark;
+    }
+
+    /* Secondary Button */
+    .btn-secondary {
+        @apply bg-vibrant-red-light text-charcoal-light py-2 px-4 rounded;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-vibrant-red-dark text-silver-dark;
+    }
+
+    .btn-secondary:focus {
+        @apply outline-none ring-2 ring-offset-2 ring-vibrant-red-light;
+    }
+
+    .btn-secondary.dark {
+        @apply bg-vibrant-red-dark text-silver-dark;
+    }
+
+    .btn-secondary.dark:hover {
+        @apply bg-vibrant-red-light text-charcoal-light;
+    }
+
+    .btn-secondary.dark:focus {
+        @apply ring-vibrant-red-dark;
+    }
+
+    /* Tertiary Button */
+    .btn-tertiary {
+        @apply bg-deep-blue-light text-charcoal-light py-2 px-4 rounded;
+    }
+
+    .btn-tertiary:hover {
+        @apply bg-deep-blue-dark text-silver-dark;
+    }
+
+    .btn-tertiary:focus {
+        @apply outline-none ring-2 ring-offset-2 ring-deep-blue-light;
+    }
+
+    .btn-tertiary.dark {
+        @apply bg-deep-blue-dark text-silver-dark;
+    }
+
+    .btn-tertiary.dark:hover {
+        @apply bg-deep-blue-light text-charcoal-light;
+    }
+
+    .btn-tertiary.dark:focus {
+        @apply ring-deep-blue-dark;
+    }
+}

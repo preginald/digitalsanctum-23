@@ -2,26 +2,27 @@
   <div>
 
     <!-- Hero Section -->
-    <section class="hero-section p-8 flex items-center justify-center text-white"
-      :style="{ backgroundImage: `url(${heroImg})` }">
-      <div class="container mx-auto  px-4 sm:max-w-screen-md">
+    <section class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
+      :style="{ backgroundImage: heroBackgroundImage }">
+      <div class="container mx-auto px-4 sm:max-w-screen-lg">
         <h1
           class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
           <span class="text-blue-600 dark:text-blue-500">Transform Your Business
           </span>with Digital Sanctum
         </h1>
-        <h2 class="text-xl mt-4">
+        <h2 class="text-xl mt-4 text-charcoal-light dark:text-silver-dark">
           Unlock your organisation's full potential through expert IT solutions
           and innovation.
         </h2>
-        <button @click="scrollToServices" class="bg-vibrant-red text-white px-6 py-2 mt-4 rounded">
-          Discover Our Services
+        <button @click="scrollToServices" class="btn-primary mt-4">
+          Discover Our Services {{ siteStore.theme }}
         </button>
       </div>
     </section>
 
     <!-- Our Services -->
-    <section id="our-services" class="py-16 bg-gray-100">
+    <section id="our-services"
+      class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-light">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -78,7 +79,7 @@
       </div>
     </section>
     <!-- Why Choose Digital Sanctum? -->
-    <section class="bg-silver py-16 text-center">
+    <section class="bg-silver-light py-16 text-center dark:bg-charcoal-dark dark:text-silver-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold mb-12">
           Why Choose Digital Sanctum?
@@ -135,16 +136,15 @@
       </div>
     </section>
     <!-- AI Consulting for Improved Workflow and Productivity -->
-    <section id="ai-consulting" class="py-16 bg-gray-100" :style="{ backgroundImage: `url(${aiImg})` }">
+    <section id="ai-consulting" class="py-16 bg-gray-100 dark:text-silver-light text-charcoal-dark"
+      :style="{ backgroundImage: aiBackgroundImage }">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12">
           AI Consulting for Improved Workflow and Productivity
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- <div>
-            <img src="ai-consulting-banner.png" alt="AI Consulting Banner" class="w-full h-auto" />
-          </div> -->
-          <div class="flex flex-col justify-center">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> -->
+        <div class="grid grid-cols-2 gap-8">
+          <div class="flex flex-col dark:bg-text-dark bg-text-light p-10 rounded-lg">
             <p class="mb-6">
               Our AI consulting services help businesses leverage the power of
               artificial intelligence to optimise their workflow, enhance
@@ -156,6 +156,8 @@
               processing, and computer vision to automate repetitive tasks,
               improve decision-making, and uncover hidden patterns in your data.
             </p>
+          </div>
+          <div class="flex flex-col dark:bg-text-dark bg-text-light p-10 rounded-lg">
             <p class="mb-6">
               We also specialise in prompt engineering, a technique used to improve
               the performance and efficiency of AI language models. By crafting
@@ -169,16 +171,23 @@
               technologies, ensuring a seamless integration with your existing
               systems and a positive impact on your bottom line.
             </p>
-            <button class="bg-blue-500 text-white px-8 py-3 rounded">
-              Explore AI Consulting Services
-            </button>
           </div>
+
+        </div>
+
+        <div class="grid grid-cols-3 gap-8 mt-3">
+          <div></div>
+          <button class="bg-blue-500 text-white px-8 py-3 rounded">
+            Explore AI Consulting Services
+          </button>
+          <div></div>
         </div>
       </div>
     </section>
 
     <!-- Call to Action -->
-    <section id="contact" class="py-16">
+    <section id="contact"
+      class="py-16 dark:bg-deep-blue-dark dark:text-silver-light bg-deep-blue-light text-charcoal-dark">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl font-bold mb-6">
           Ready to Transform Your Business?
@@ -196,8 +205,21 @@
 </template>
 
 <script setup lang="ts">
+import { useSiteStore } from '~~/stores/siteStore';
 import heroImg from '~/assets/images/hero.jpg'
+import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
 import aiImg from '~/assets/images/ds-abstract-services.png'
+import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
+
+const siteStore = useSiteStore()
+
+const heroBackgroundImage = computed(() => {
+  return `url(${siteStore.theme === 'light' ? heroImgLight : heroImg})`;
+});
+
+const aiBackgroundImage = computed(() => {
+  return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
+});
 
 const headerVisible = ref(false);
 
@@ -218,11 +240,29 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+
+  // Get the saved theme from local storage
+  const savedTheme = localStorage.getItem('theme');
+
+  // Set the theme in the store based on the saved theme
+  siteStore.setTheme(savedTheme ? savedTheme : 'dark');
+
+
+  // Get the saved theme from local storage
+  // const savedTheme = localStorage.getItem('theme');
+
+  // Set the theme ref value based on the saved theme
+  // theme.value = savedTheme ? savedTheme : 'dark';
+
+
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+const theme = siteStore.theme;
+
 </script>
 
 

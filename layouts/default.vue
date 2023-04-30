@@ -1,11 +1,12 @@
 <template>
     <div>
         <!-- Header and Navigation -->
-        <header v-show="headerVisible" class="sticky bg-deep-blue p-4">
+        <header v-show="headerVisible"
+            class="sticky bg-deep-blue-light dark:bg-deep-blue-dark silver-light dark:silver-dark p-4">
             <div class="container mx-auto flex items-center justify-between">
                 <div class="text-white text-xl font-bold">Digital Sanctum</div>
                 <nav>
-                    <ul v-if="route.path === '/'" class="flex space-x-4">
+                    <ul v-if="route.path === '/'" class="flex space-x-3">
                         <NuxtLink to="/" class="text-white">Home</NuxtLink>
                         <NuxtLink to="#our-services" class="text-white">Services</NuxtLink>
 
@@ -100,8 +101,10 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
+import { useSiteStore } from '~~/stores/siteStore';
+const siteStore = useSiteStore()
 
+const route = useRoute();
 const headerVisible = ref(true);
 
 if (route.path === '/') {
@@ -111,7 +114,8 @@ if (route.path === '/') {
 const toggleTheme = () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-
+    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    siteStore.setTheme(newTheme);
 }
 
 const handleScroll = () => {
