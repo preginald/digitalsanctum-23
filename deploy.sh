@@ -3,6 +3,9 @@
 # Pull latest updates from Github
 git pull
 
+# Install dependancies
+yarn install
+
 # Build the project
 npm run build
 
