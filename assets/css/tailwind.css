@@ -7,27 +7,7 @@
 
     /* Primary Button */
     .btn-primary {
-        @apply bg-electric-blue-light text-white py-2 px-4 rounded;
-    }
-
-    .btn-primary:hover {
-        @apply bg-electric-blue-dark text-white;
-    }
-
-    .btn-primary:focus {
-        @apply outline-none ring-2 ring-offset-2 ring-electric-blue-light;
-    }
-
-    .btn-primary.dark {
-        @apply bg-electric-blue-dark text-white;
-    }
-
-    .btn-primary.dark:hover {
-        @apply bg-electric-blue-light text-charcoal-light;
-    }
-
-    .btn-primary.dark:focus {
-        @apply ring-electric-blue-dark;
+        @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
     }
 
     /* Secondary Button */
