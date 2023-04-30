@@ -10,19 +10,19 @@
           <span class="text-blue-600 dark:text-blue-500">Transform Your Business
           </span>with Digital Sanctum
         </h1>
-        <h2 class="text-xl mt-4 text-charcoal-light dark:text-silver-dark">
+        <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
           Unlock your organisation's full potential through expert IT solutions
           and innovation.
         </h2>
         <button @click="scrollToServices" class="btn-primary mt-4">
-          Discover Our Services {{ siteStore.theme }}
+          Discover Our Services
         </button>
       </div>
     </section>
 
     <!-- Our Services -->
     <section id="our-services"
-      class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-light">
+      class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -71,11 +71,11 @@
             </p>
           </div>
         </div>
-        <div class="text-center mt-12">
+        <!-- <div class="text-center mt-12">
           <button class="bg-blue-500 text-white px-8 py-3 rounded">
             Learn More About Our Services
           </button>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- Why Choose Digital Sanctum? -->
@@ -175,13 +175,13 @@
 
         </div>
 
-        <div class="grid grid-cols-3 gap-8 mt-3">
+        <!-- <div class="grid grid-cols-3 gap-8 mt-3">
           <div></div>
           <button class="bg-blue-500 text-white px-8 py-3 rounded">
             Explore AI Consulting Services
           </button>
           <div></div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -196,8 +196,8 @@
           Get in touch with our team for a consultation or to learn more about
           our services.
         </p>
-        <button class="bg-blue-500 text-white px-8 py-3 rounded">
-          Contact Us Today
+        <button class="disabled bg-blue-500 text-white px-8 py-3 rounded">
+          We will relaunch our service on the 15th of May 2023
         </button>
       </div>
     </section>
