@@ -42,8 +42,8 @@
                         <h3 class="text-xl font-bold mb-4">Digital Sanctum</h3>
                         <p>55 Baker Ave</p>
                         <p>Kew East VIC 3102</p>
-                        <p>Phone: (555) 123-4567</p>
-                        <p>Email: info@digitalsanctum.com</p>
+                        <!-- <p>Phone: (555) 123-4567</p> -->
+                        <!-- <p>Email: info@digitalsanctum.com</p> -->
                     </div>
 
                     <!-- Social Media Icons -->
@@ -61,7 +61,7 @@
                     </div> -->
 
                     <!-- Quick Links -->
-                    <div>
+                    <!-- <div>
                         <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                         <ul class="space-y-2">
                             <li>
@@ -83,7 +83,7 @@
                                 <a href="#" class="text-blue-400 hover:text-blue-300">Contact Us</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Privacy Policy and Terms of Service -->
