@@ -6,10 +6,26 @@
             <h2 class="text-4xl font-bold mb-6">
                 Ready to Transform Your Business?
             </h2>
-            <p class="text-xl mb-12">
+            <p hidden class="text-xl mb-12">
                 Get in touch with our team for a consultation or to learn more about our services.
             </p>
-            <form action="#" class="space-y-8">
+            <p class="text-xl mb-12">
+                Thank you for considering our services. We would like to inform you that,
+                due to an overwhelming demand and our commitment to providing exceptional service to our existing clients,
+                we are currently unable to take on any new clients until after May 2023.
+            </p>
+            <p class="text-xl mb-12">
+                We appreciate your understanding and apologise for any inconvenience this may cause. Please feel free to
+                check back with us after May 2023 for updates on our availability, and thank you once again for your
+                interest in our services.
+            </p>
+            <p class="text-xl mb-12">
+                Warm regards,<br />
+                <br />
+                Peter Reginald,<br />
+                Digital Sanctum
+            </p>
+            <form hidden action="#" class="space-y-8">
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                         email</label>
