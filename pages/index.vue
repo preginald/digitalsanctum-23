@@ -142,15 +142,15 @@
         <h2 class="text-4xl font-bold text-center mb-12">
           AI Consulting for Improved Workflow and Productivity
         </h2>
-        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> -->
-        <div class="grid grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- <div class="grid grid-cols-2 gap-8"> -->
           <div class="flex flex-col dark:bg-text-dark bg-text-light p-10 rounded-lg">
             <p class="mb-6">
               Our AI consulting services help businesses leverage the power of
               artificial intelligence to optimise their workflow, enhance
               productivity, and drive innovation.
             </p>
-            <p class="mb-6">
+            <p>
               With our expertise in AI technologies, we can help you implement
               advanced solutions like machine learning, natural language
               processing, and computer vision to automate repetitive tasks,
@@ -165,7 +165,7 @@
               generate more accurate and relevant responses, ultimately enhancing
               your business operations.
             </p>
-            <p class="mb-6">
+            <p>
               Whether you're a small business or a large enterprise, our AI
               consultants can guide you through the process of adopting AI
               technologies, ensuring a seamless integration with your existing
@@ -184,23 +184,8 @@
         </div> -->
       </div>
     </section>
+    <Contact />
 
-    <!-- Call to Action -->
-    <section id="contact"
-      class="py-16 dark:bg-deep-blue-dark dark:text-silver-light bg-deep-blue-light text-charcoal-dark">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-6">
-          Ready to Transform Your Business?
-        </h2>
-        <p class="text-xl mb-12">
-          Get in touch with our team for a consultation or to learn more about
-          our services.
-        </p>
-        <button class="disabled bg-blue-500 text-white px-8 py-3 rounded">
-          We will relaunch our service on the 15th of May 2023
-        </button>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -210,6 +195,7 @@ import heroImg from '~/assets/images/hero.jpg'
 import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
 import aiImg from '~/assets/images/ds-abstract-services.png'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
+import Contact from '~/components/Contact.vue'
 
 const siteStore = useSiteStore()
 
