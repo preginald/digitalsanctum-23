@@ -1,32 +1,8 @@
 <template>
     <div>
         <!-- Header and Navigation -->
-        <header v-show="headerVisible"
-            class="sticky bg-deep-blue-light dark:bg-deep-blue-dark silver-light dark:silver-dark p-4">
-            <div class="container mx-auto flex items-center justify-between">
-                <div class="text-white text-xl font-bold">Digital Sanctum</div>
-                <nav>
-                    <ul v-if="route.path === '/'" class="flex space-x-3">
-                        <NuxtLink to="/" class="text-white">Home</NuxtLink>
-                        <NuxtLink to="#our-services" class="text-white">Services</NuxtLink>
+        <Nav />
 
-                        <NuxtLink to="#ai-consulting" class="text-white">AI Consulting</NuxtLink>
-                        <!-- <li><a href="#" class="text-white">About Us</a></li> -->
-                        <!-- <li><a href="#" class="text-white">Testimonials</a></li> -->
-                        <NuxtLink to="#contact" class="text-white">Contact</NuxtLink>
-                    </ul>
-                    <ul v-if="route.path.includes('/policies')" class="flex space-x-4">
-                        <NuxtLink to="/" class="text-white">Home</NuxtLink>
-                        <NuxtLink to="/policies/terms-of-use" class="text-white">Terms of Use</NuxtLink>
-
-                        <NuxtLink to="/policies/privacy" class="text-white">Privacy Policy</NuxtLink>
-                    </ul>
-                </nav>
-                <div>
-                    <button @click="toggleTheme">Toggle Theme</button>
-                </div>
-            </div>
-        </header>
 
         <!-- Page Content -->
         <main>
@@ -101,6 +77,7 @@
 </template>
 
 <script setup lang="ts">
+import Nav from '~/components/Nav.vue'
 import { useSiteStore } from '~~/stores/siteStore';
 const siteStore = useSiteStore()
 
