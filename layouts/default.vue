@@ -102,6 +102,14 @@ const handleScroll = () => {
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+    const savedTheme = localStorage.getItem('theme');
+    const defaultTheme = savedTheme ? savedTheme : 'dark';
+
+    if (defaultTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
 });
 
 onBeforeUnmount(() => {
