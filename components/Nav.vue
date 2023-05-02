@@ -37,6 +37,11 @@
                         <a href="#contact"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                     </li>
+                    <li>
+                        <button @click="toggleTheme">
+                            <Icon class="dark:text-white text-xl" :name=themeIcon() />
+                        </button>
+                    </li>
                 </ul>
                 <ul v-if="route.path.includes('/policies')"
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -57,6 +62,9 @@
                             Privacy Policty
                         </NuxtLink>
                     </li>
+                    <li>
+                        <button @click="toggleTheme">Toggle Theme</button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -64,9 +72,23 @@
 </template>
 
 <script setup lang="ts">
+import { useSiteStore } from '~~/stores/siteStore';
+const siteStore = useSiteStore()
 const route = useRoute();
 var menuOpen = ref(false)
 const toggleMenu = () => {
     menuOpen.value = !menuOpen.value;
 }
+
+const themeIcon = () => {
+    return siteStore.theme === "dark" ? "mdi:weather-night" : "mdi:white-balance-sunny";
+}
+
+const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    siteStore.setTheme(newTheme);
+}
+
 </script>

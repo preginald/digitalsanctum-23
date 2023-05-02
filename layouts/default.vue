@@ -88,13 +88,6 @@ if (route.path === '/') {
     const headerVisible = ref(false);
 }
 
-const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    siteStore.setTheme(newTheme);
-}
-
 const handleScroll = () => {
     if (route.path === '/') {
         if (window.scrollY === 0) {
@@ -109,14 +102,6 @@ const handleScroll = () => {
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
-    const savedTheme = localStorage.getItem('theme');
-    const defaultTheme = savedTheme ? savedTheme : 'dark';
-
-    if (defaultTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
 });
 
 onBeforeUnmount(() => {
