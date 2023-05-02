@@ -18,53 +18,47 @@
                 </svg>
             </button>
             <div :class="{ hidden: !menuOpen, block: menuOpen }" class="w-full md:block md:w-auto" id="navbar-default">
-                <ul v-if="route.path === '/'"
+                <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
+                    <li v-if="route.path === '/'">
                         <a href="#"
                             class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                             aria-current="page">Home</a>
                     </li>
-                    <li>
+                    <li v-if="route.path === '/'">
                         <a href="#our-services"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
                     </li>
-                    <li>
+                    <li v-if="route.path === '/'">
                         <a href="#ai-consulting"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">AI
                             Consulting</a>
                     </li>
-                    <li>
+                    <li v-if="route.path === '/'">
                         <a href="#contact"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                     </li>
-                    <li>
-                        <button @click="toggleTheme">
-                            <Icon class="dark:text-white text-xl" :name=themeIcon() />
-                        </button>
-                    </li>
-                </ul>
-                <ul v-if="route.path.includes('/policies')"
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
+                    <li v-if="route.path.includes('/policies')">
                         <NuxtLink to="/"
                             class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                             aria-current="page">Home</NuxtLink>
                     </li>
-                    <li>
+                    <li v-if="route.path.includes('/policies')">
                         <NuxtLink to="/policies/terms-of-use"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                             Terms of Use
                         </NuxtLink>
                     </li>
-                    <li>
+                    <li v-if="route.path.includes('/policies')">
                         <NuxtLink to="/policies/privacy"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                             Privacy Policty
                         </NuxtLink>
                     </li>
                     <li>
-                        <button @click="toggleTheme">Toggle Theme</button>
+                        <button @click="toggleTheme">
+                            <Icon class="dark:text-white text-xl" :name=themeIcon() />
+                        </button>
                     </li>
                 </ul>
             </div>
