@@ -193,7 +193,7 @@
 import { useSiteStore } from '~~/stores/siteStore';
 import heroImg from '~/assets/images/hero.jpg'
 import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
-import aiImg from '~/assets/images/ds-abstract-services.png'
+import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 import Contact from '~/components/Contact.vue'
 
