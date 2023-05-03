@@ -93,7 +93,7 @@
             </h3>
             <p>
               Our team has decades of experience in the IT industry, ensuring
-              the highest quality services for your organization.
+              the highest quality services for your organisation.
             </p>
           </div>
 
