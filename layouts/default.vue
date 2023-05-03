@@ -66,9 +66,12 @@
                 <div class="text-center text-white text-sm">
                     <p>&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
                     <p>
-                        <a href="/policies/privacy" class="text-blue-400 hover:text-blue-300">Privacy Policy</a>
-                        |
-                        <a href="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">Terms of Service</a>
+                        <NuxtLink to="/policies/privacy" class="text-blue-400 hover:text-blue-300">
+                            Privacy
+                        </NuxtLink>
+                        <NuxtLink to="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">
+                            Terms of Use
+                        </NuxtLink>
                     </p>
                 </div>
             </div>
