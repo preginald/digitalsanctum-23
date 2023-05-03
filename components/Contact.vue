@@ -12,11 +12,11 @@
             <p class="text-xl mb-12">
                 Thank you for considering our services. We would like to inform you that,
                 due to an overwhelming demand and our commitment to providing exceptional service to our existing clients,
-                we are currently unable to take on any new clients until after May 2023.
+                we are currently unable to take on any new clients until after 1st July 2023.
             </p>
             <p class="text-xl mb-12">
                 We appreciate your understanding and apologise for any inconvenience this may cause. Please feel free to
-                check back with us after May 2023 for updates on our availability, and thank you once again for your
+                check back with us after 1st July 2023 for updates on our availability, and thank you once again for your
                 interest in our services.
             </p>
             <p class="text-xl mb-12">
