@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto px-4 py-8 prose lg:max-w-prose">
-        <h1 class="text-4xl font-bold mb-6">Terms of Use</h1>
+        <h1 class="text-4xl font-bold mb-6">Terms and Conditions</h1>
 
         <h2 class="text-2xl font-semibold mb-3">1. Introduction</h2>
         <p class="mb-6">

@@ -70,8 +70,8 @@
                                 </NuxtLink>
                             </li>
                             <li>
-                                <NuxtLink to="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">
-                                    Terms of Use
+                                <NuxtLink to="/policies/terms-and-conditions" class="text-blue-400 hover:text-blue-300">
+                                    Terms & conditions
                                 </NuxtLink>
                             </li>
                             <!-- <li>
