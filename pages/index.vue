@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!-- Hero Section -->
     <section class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
       :style="{ backgroundImage: heroBackgroundImage }">
