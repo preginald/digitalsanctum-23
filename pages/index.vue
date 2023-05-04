@@ -233,14 +233,6 @@ onMounted(() => {
   // Set the theme in the store based on the saved theme
   siteStore.setTheme(savedTheme ? savedTheme : 'dark');
 
-
-  // Get the saved theme from local storage
-  // const savedTheme = localStorage.getItem('theme');
-
-  // Set the theme ref value based on the saved theme
-  // theme.value = savedTheme ? savedTheme : 'dark';
-
-
 });
 
 onBeforeUnmount(() => {
