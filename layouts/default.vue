@@ -5,7 +5,7 @@
 
 
         <!-- Page Content -->
-        <main>
+        <main class="main-content">
             <slot />
         </main>
 
@@ -15,9 +15,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white mb-8">
                     <!-- Company Information -->
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Digital Sanctum</h3>
-                        <p>55 Baker Ave</p>
-                        <p>Kew East VIC 3102</p>
+                        <h3 class="text-xl font-bold mb-4 text-silver-light">Digital Sanctum</h3>
+                        <p class="text-silver-light">55 Baker Ave</p>
+                        <p class="text-silver-light">Kew East VIC 3102</p>
                         <!-- <p>Phone: (555) 123-4567</p> -->
                         <!-- <p>Email: info@digitalsanctum.com</p> -->
                     </div>
@@ -60,19 +60,30 @@
                             </li>
                         </ul>
                     </div> -->
+                    <!-- Policies -->
+                    <div>
+                        <h5 class="text-xl font-bold mb-4">Quick Links</h5>
+                        <ul class="space-y-2">
+                            <li>
+                                <NuxtLink to="/policies/privacy" class="text-blue-400 hover:text-blue-300">
+                                    Privacy
+                                </NuxtLink>
+                            </li>
+                            <li>
+                                <NuxtLink to="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">
+                                    Terms of Use
+                                </NuxtLink>
+                            </li>
+                            <!-- <li>
+                                <a href="#" class="text-blue-400 hover:text-blue-300">Contact Us</a>
+                            </li> -->
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Privacy Policy and Terms of Service -->
+                <!-- Copyright -->
                 <div class="text-center text-white text-sm">
-                    <p>&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
-                    <p>
-                        <NuxtLink to="/policies/privacy" class="text-blue-400 hover:text-blue-300">
-                            Privacy
-                        </NuxtLink>
-                        <NuxtLink to="/policies/terms-of-use" class="text-blue-400 hover:text-blue-300">
-                            Terms of Use
-                        </NuxtLink>
-                    </p>
+                    <p class="text-silver-light">&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
@@ -121,6 +132,10 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.main-content {
+    padding-top: 4rem;
+}
+
 .router-link-exact-active {
     color: white;
 }
