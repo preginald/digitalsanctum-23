@@ -259,9 +259,4 @@ const theme = siteStore.theme;
   background-repeat: no-repeat;
   min-height: 100vh;
 }
-
-.sticky {
-  position: sticky;
-  top: 0;
-}
 </style>
