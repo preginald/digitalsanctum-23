@@ -13,6 +13,15 @@
         <footer class="bg-gray-800 py-12">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white mb-8">
+                    <!-- Elevator Pitch -->
+                    <div class="flex flex-col md:col-span-3 lg:col-span-1">
+                        <h3 class="text-xl font-bold mb-4">Connect with Us</h3>
+                        <div class="flex space-x-4">
+                            <p>Digital Sanctum specialises in AI consulting and IT solutions for Boroondara businesses.
+                                Experience our expert guidance, tailored strategies, and empathetic approach to unlock your
+                                organisation's potential.</p>
+                        </div>
+                    </div>
                     <!-- Company Information -->
                     <div>
                         <h3 class="text-xl font-bold mb-4 text-silver-light">Digital Sanctum</h3>
