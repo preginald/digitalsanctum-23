@@ -24,7 +24,7 @@
     <section id="our-services"
       class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-dark">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+        <h2 class="text-4xl font-bold text-center mt-10 mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Business Process Management -->
           <div class="flex flex-col items-center">
@@ -81,7 +81,7 @@
     <!-- Why Choose Digital Sanctum? -->
     <section class="bg-silver-light py-16 text-center dark:bg-charcoal-dark dark:text-silver-dark">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12">
+        <h2 class="text-4xl font-bold mt-10 mb-12">
           Why Choose Digital Sanctum?
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -139,7 +139,7 @@
     <section id="ai-consulting" class="py-16 bg-gray-100 dark:text-silver-light text-charcoal-dark"
       :style="{ backgroundImage: aiBackgroundImage }">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12">
+        <h2 class="text-4xl font-bold text-center mt-10 mb-12">
           AI Consulting for Improved Workflow and Productivity
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
