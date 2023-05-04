@@ -43,7 +43,7 @@
           <div class="flex flex-col items-center">
             <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
             <h3 class="text-2xl font-semibold text-center mb-2">
-              Workflow Automation using Programming
+              Workflow Automation
             </h3>
             <p class="text-center">
               Harness the power of programming to automate routine tasks and
