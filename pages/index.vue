@@ -7,7 +7,7 @@
       <div class="container mx-auto px-4 sm:max-w-screen-lg">
         <h1
           class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="text-blue-600 dark:text-blue-500">Transform Your Business
+          <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-sky-400">Transform Your Business
           </span>with Digital Sanctum
         </h1>
         <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
