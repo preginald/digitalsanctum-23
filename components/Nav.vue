@@ -20,47 +20,26 @@
                 </svg>
             </button>
             <div :class="{ hidden: !menuOpen, block: menuOpen }" class="w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li v-if="route.path === '/'">
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                            aria-current="page">Home</a>
-                    </li>
-                    <li v-if="route.path === '/'">
-                        <a href="#our-services"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                    </li>
-                    <li v-if="route.path === '/'">
-                        <a href="#ai-consulting"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">AI
-                            Consulting</a>
-                    </li>
-                    <li v-if="route.path === '/'">
-                        <a href="#contact"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                    </li>
-                    <li v-if="route.path.includes('/policies')">
-                        <NuxtLink to="/"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                            aria-current="page">Home</NuxtLink>
-                    </li>
-                    <li v-if="route.path.includes('/policies')">
-                        <NuxtLink to="/policies/terms-and-conditions"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            Terms & Conditions
+                <ul :class="navClasses">
+                    <li>
+                        <NuxtLink to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded md:p-0 dark:text-white" :class="{
+                                'hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-blue-300 md:dark:hover:bg-transparent': route.path.startsWith('/policies'),
+                                'text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500': !route.path.startsWith('/policies')
+                            }" :aria-current="route.path.startsWith('/policies') ? undefined : 'page'">
+                            Home
                         </NuxtLink>
                     </li>
-                    <li v-if="route.path.includes('/policies')">
-                        <NuxtLink to="/policies/privacy"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            Privacy Policty
+                    <li v-for="(navItem, index) in navigationItems" :key="index">
+                        <a v-if="navItem.type === 'a'" :href="navItem.href" :class="itemClass(navItem)" aria-current="page">
+                            {{ navItem.text }}
+                        </a>
+                        <NuxtLink v-else :to="navItem.to" :class="itemClass(navItem)">
+                            {{ navItem.text }}
                         </NuxtLink>
                     </li>
                     <li>
-                        <button @click="toggleTheme"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            <Icon class="" :name=themeIcon() />
+                        <button @click="toggleTheme">
+                            <Icon class="dark:text-white text-xl" :name="themeIcon()" />
                         </button>
                     </li>
                 </ul>
@@ -88,5 +67,64 @@ const toggleTheme = () => {
     const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     siteStore.setTheme(newTheme);
 }
+const navClasses =
+    "font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700";
+
+const navigationItems = computed(() => {
+    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-light rounded md:p-0";
+    const activeClassName = "md:text-electric-blue-light";
+    const hoverClasses = "dark:hover:text-blue-900 hover:text-blue-900 md:hover:bg-transparent";
+
+    if (route.path === "/") {
+        return [
+            {
+                type: "a",
+                href: "#our-services",
+                text: "Services",
+                classes: `${defaultClasses} ${route.hash === "#our-services" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "a",
+                href: "#ai-consulting",
+                text: "AI Consulting",
+                classes: `${defaultClasses} ${route.hash === "#ai-consulting" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "a",
+                href: "#contact",
+                text: "Contact",
+                classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            // ... other items for the home route
+        ];
+    } else if (route.path.includes("/policies")) {
+        return [
+            {
+                type: "NuxtLink",
+                to: "/policies/terms-and-conditions",
+                text: "Terms & Conditions",
+                classes: `${defaultClasses} ${route.path === "/policies/terms-and-conditions" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "NuxtLink",
+                to: "/policies/privacy",
+                text: "Privacy",
+                classes: `${defaultClasses} ${route.path === "/policies/privacy" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            // ... other items for the policies route
+        ];
+    }
+    return [];
+});
+
+const itemClass = (navItem) => {
+    let baseClasses =
+        "block py-2 pl-3 pr-4 rounded md:p-0 dark:text-white hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-blue-300 md:dark:hover:bg-transparent";
+    if (route.path === navItem.to) {
+        return `${baseClasses} text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500`;
+    }
+    return `${baseClasses} text-gray-900`;
+};
+
 
 </script>
