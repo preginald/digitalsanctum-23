@@ -62,7 +62,7 @@
                     </div> -->
                     <!-- Policies -->
                     <div>
-                        <h5 class="text-xl font-bold mb-4">Quick Links</h5>
+                        <h5 class="text-sm font-bold mb-4 uppercase">Policies</h5>
                         <ul class="space-y-2">
                             <li>
                                 <NuxtLink to="/policies/privacy" class="text-blue-400 hover:text-blue-300">
