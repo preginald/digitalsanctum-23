@@ -69,10 +69,17 @@ const siteStore = useSiteStore()
 const route = useRoute();
 const headerVisible = ref(true);
 
-definePageMeta({
+// definePageMeta({
+//     title: 'Digital Sanctum - AI consulting and IT solutions for Boroondara businesses',
+//     description: "Digital Sanctum specialises in AI consulting and IT solutions for Boroondara businesses. Experience our expert guidance, tailored strategies, and empathetic approach to unlock your organisation's potential.",
+//     type: "website"
+// })
+
+useHead({
     title: 'Digital Sanctum - AI consulting and IT solutions for Boroondara businesses',
-    description: "Digital Sanctum specialises in AI consulting and IT solutions for Boroondara businesses. Experience our expert guidance, tailored strategies, and empathetic approach to unlock your organisation's potential.",
-    type: "website"
+    meta: [
+        { name: 'description', content: "Digital Sanctum specialises in AI consulting and IT solutions for Boroondara businesses. Experience our expert guidance, tailored strategies, and empathetic approach to unlock your organisation's potential." }
+    ],
 })
 
 if (route.path === '/') {
