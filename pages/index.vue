@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
+    <section ref="heroSection"
+      class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
       :style="{ backgroundImage: heroBackgroundImage }">
       <div class="container mx-auto px-4 sm:max-w-screen-lg">
         <h1
@@ -19,25 +20,17 @@
       </div>
     </section>
 
+    <!-- Header and Navigation -->
+    <div ref="navbar" class="navbar">
+      <Nav />
+    </div>
+
     <!-- Our Services -->
     <section id="our-services"
       class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mt-10 mb-12">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Business Process Management -->
-          <div class="flex flex-col items-center">
-            <!-- <img src="business-process-management-icon.png" alt="Business Process Management Icon"
-              class="w-20 h-20 mb-4" /> -->
-            <h3 class="text-2xl font-semibold text-center mb-2">
-              Business Process Management
-            </h3>
-            <p class="text-center">
-              Optimise your organisation's processes and increase efficiency
-              with our expert consulting services.
-            </p>
-          </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Workflow Automation using Programming -->
           <div class="flex flex-col items-center">
             <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
@@ -196,6 +189,10 @@ import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 import Contact from '~/components/Contact.vue'
 
+definePageMeta({
+  layout: "landing",
+});
+
 const siteStore = useSiteStore()
 
 const heroBackgroundImage = computed(() => {
@@ -206,8 +203,6 @@ const aiBackgroundImage = computed(() => {
   return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
 });
 
-const headerVisible = ref(false);
-
 const scrollToServices = () => {
   const ourServices = document.querySelector('#our-services');
   if (ourServices) {
@@ -215,27 +210,38 @@ const scrollToServices = () => {
   }
 };
 
+const navbar = ref(null);
+let isNavSticky = false;
+
 const handleScroll = () => {
-  if (window.scrollY === 0) {
-    headerVisible.value = false;
-  } else {
-    headerVisible.value = true;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > navbar.value.offsetHeight && !isNavSticky) {
+    navbar.value.style.position = 'sticky';
+    navbar.value.style.top = '0';
+    isNavSticky = true;
+  } else if (scrollTop <= navbar.value.offsetHeight && isNavSticky) {
+    navbar.value.style.position = 'fixed';
+    navbar.value.style.top = '';
+    navbar.value.style.bottom = '0';
+    isNavSticky = false;
   }
 };
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
 
+onMounted(() => {
   // Get the saved theme from local storage
   const savedTheme = localStorage.getItem('theme');
 
   // Set the theme in the store based on the saved theme
   siteStore.setTheme(savedTheme ? savedTheme : 'dark');
 
+  window.addEventListener('scroll', handleScroll);
+
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
+
 });
 
 const theme = siteStore.theme;
@@ -244,6 +250,13 @@ const theme = siteStore.theme;
 
 
 <style scoped>
+.navbar {
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
 .hero-section {
   background-position: center center;
   background-size: cover;
