@@ -10,9 +10,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 text-white mb-8">
                     <!-- Elevator Pitch -->
                     <div class="flex flex-col md:col-span-2 lg:col-span-2">
-                        <h3 class="text-xl font-bold mb-4">Digital Sanctum</h3>
+                        <h3 class="text-xl font-bold mb-4 dark:text-silver-dark text-silver-dark">Digital Sanctum</h3>
                         <div class="flex space-x-4">
-                            <p>Digital Sanctum specialises in AI consulting and IT solutions for Boroondara businesses.
+                            <p class=" dark:text-silver-dark text-silver-dark">Digital Sanctum specialises in AI consulting
+                                and IT solutions for
+                                Boroondara businesses.
                                 Experience our expert guidance, tailored strategies, and empathetic approach to unlock your
                                 organisation's potential.</p>
                         </div>
