@@ -26,14 +26,14 @@
     </div>
 
     <!-- Our Services -->
-    <section id="our-services"
-      class="py-16 dark:bg-electric-blue-dark dark:text-silver-light bg-electric-blue-light text-charcoal-dark">
+    <section id="our-services" class="py-16 dark:bg-charcoal-dark dark:text-silver-light bg-gray-100 text-charcoal-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mt-10 mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Workflow Automation using Programming -->
           <div class="flex flex-col items-center">
             <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
+            <workflowIcon class="section-icon" />
             <h3 class="text-2xl font-semibold text-center mb-2">
               Workflow Automation
             </h3>
@@ -46,6 +46,7 @@
           <!-- IT Support -->
           <div class="flex flex-col items-center">
             <!-- <img src="it-support-icon.png" alt="IT Support Icon" class="w-20 h-20 mb-4" /> -->
+            <itSupportIcon class="section-icon" />
             <h3 class="text-2xl font-semibold mb-2">IT Support</h3>
             <p class="text-center">
               Rely on our experienced team to provide comprehensive IT support
@@ -56,6 +57,7 @@
           <!-- AI Consulting -->
           <div class="flex flex-col items-center">
             <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
+            <aiConsultingIcon class="section-icon" />
             <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
             <p class="text-center">
               Leverage artificial intelligence to drive innovation and unlock
@@ -188,6 +190,9 @@ import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 import Contact from '~/components/Contact.vue'
+import workflowIcon from '~/components/icons/workflow.vue'
+import itSupportIcon from '~/components/icons/itsupport.vue'
+import aiConsultingIcon from '~/components/icons/aiconsulting.vue'
 
 definePageMeta({
   layout: "landing",
