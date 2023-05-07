@@ -38,8 +38,7 @@
               Workflow Automation
             </h3>
             <p class="text-center">
-              Harness the power of programming to automate routine tasks and
-              improve overall productivity.
+              Leverage the power of automation to streamline repetitive tasks and enhance overall productivity.
             </p>
           </div>
 
