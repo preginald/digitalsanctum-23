@@ -31,7 +31,7 @@
         <h2 class="text-4xl font-bold text-center mt-10 mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Workflow Automation using Programming -->
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center mb-10">
             <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
             <workflowIcon class="section-icon" />
             <h3 class="text-2xl font-semibold text-center mb-2">
@@ -44,9 +44,9 @@
           </div>
 
           <!-- IT Support -->
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center mb-10">
             <!-- <img src="it-support-icon.png" alt="IT Support Icon" class="w-20 h-20 mb-4" /> -->
-            <itSupportIcon class="section-icon" />
+            <itConsultingIcon class="section-icon" />
             <h3 class="text-2xl font-semibold mb-2">IT Support</h3>
             <p class="text-center">
               Rely on our experienced team to provide comprehensive IT support
@@ -55,7 +55,7 @@
           </div>
 
           <!-- AI Consulting -->
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center mb-10">
             <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
             <aiConsultingIcon class="section-icon" />
             <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
@@ -191,7 +191,7 @@ import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 import Contact from '~/components/Contact.vue'
 import workflowIcon from '~/components/icons/workflow.vue'
-import itSupportIcon from '~/components/icons/itsupport.vue'
+import itConsultingIcon from '~/components/icons/itconsulting.vue'
 import aiConsultingIcon from '~/components/icons/aiconsulting.vue'
 
 definePageMeta({
