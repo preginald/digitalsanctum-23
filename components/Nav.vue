@@ -66,7 +66,7 @@ const toggleMenu = () => {
 }
 
 const themeIcon = () => {
-    return siteStore.theme === "dark" ? "mdi:weather-night" : "mdi:white-balance-sunny";
+    return siteStore.theme === "dark" ? "mdi:white-balance-sunny" : "mdi:weather-night";
 }
 
 const toggleTheme = () => {
