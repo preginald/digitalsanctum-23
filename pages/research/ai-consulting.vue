@@ -47,16 +47,16 @@
         <div class="container mx-auto px-4">
             <div class="mx-auto w-2/4 my-10">
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email"
+                    <input type="email" name="floating_email" id="floating_email" v-model="businessEmail"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         placeholder=" " required />
                     <label for="floating_email"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                         address</label>
                 </div>
-                <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="grid md:grid-cols-2 md:gap-6" v-if="validateEmail()">
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_first_name" id="floating_first_name"
+                        <input type="text" name="floating_first_name" id="floating_first_name" v-model="businessFirstName"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="floating_first_name"
@@ -64,7 +64,7 @@
                             name</label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name"
+                        <input type="text" name="floating_last_name" id="floating_last_name" v-model="businessLastName"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="floating_last_name"
@@ -72,37 +72,43 @@
                             name</label>
                     </div>
                 </div>
-                <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="grid md:grid-cols-2 md:gap-6" v-if="businessFirstName && businessLastName">
                     <div class="relative z-0 w-full mb-6 group">
                         <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"
+                            v-model="businessPhone"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="floating_phone"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
-                            number (123-456-7890)</label>
+                            number (landline or mobile)</label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_company" id="floating_company"
+                        <input type="text" name="floating_company" id="floating_company" v-model="businessName"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="floating_company"
-                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company
-                            (Ex. Google)</label>
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Business
+                            name</label>
                     </div>
                 </div>
             </div>
 
-            <div class="mx-auto w-2/4 my-10">
-                <label for="business-size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Select your
-                    business size by yearly turnover.</label>
-                <select id="business-size" v-model="businessSize" required
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="">Select business size</option>
-                    <option v-for="option in businessSizes" :key="option.value" :value="option.value">
-                        {{ option.text }}
-                    </option>
-                </select>
+            <div class="mx-auto w-2/4 my-10" v-if="businessName && validateInput(businessName)">
+                <label for="budget" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What is your
+                    approximate budget for AI consulting services? (Please select the most appropriate range)</label>
+                <div id="budget" class="space-y-2">
+                    <template v-for="(option, index) in businessSizes" :key="index">
+                        <div class="flex items-center">
+                            <input :id="`budget-radio-${index}`" type="radio" :value="option.value" v-model="businessSize"
+                                name="budget"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label :for="`budget-radio-${index}`"
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ option.text }}</label>
+                        </div>
+                    </template>
+                </div>
             </div>
+
             <div v-if="businessSize" class="mx-auto w-2/4 my-10">
                 <label for="business-industry" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What
                     industry
@@ -125,7 +131,7 @@
                 <div id="business-ai-tech" class="space-y-2">
                     <button v-for="option in aiTechnologies" :key="option.value"
                         @click="toggleOption(option.value, businessAiTech)" :class="[
-                            businessAiTech.includes(option.value) ? 'dark:bg-blue-500 dark:text-white bg-blue-500 text-white' : 'bg-gray-50 text-gray-900',
+                            businessAiTech.includes(option.value) ? 'dark:bg-purple-500 dark:text-white bg-blue-500 text-white' : 'bg-gray-50 text-gray-900',
                             'text-sm rounded-lg border border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:hover:bg-blue-500 dark:hover:text-white w-full transition-colors duration-200'
                         ]">
                         {{ option.text }}
@@ -140,14 +146,14 @@
                 <div id="business-opportunities" class="space-y-2">
                     <button v-for="option in opportunities" :key="option.value"
                         @click="toggleOption(option.value, businessOpportunities)" :class="[
-                            businessOpportunities.includes(option.value) ? 'dark:bg-blue-500 dark:text-white bg-blue-500 text-white' : 'bg-gray-50 text-gray-900',
+                            businessOpportunities.includes(option.value) ? 'dark:bg-purple-500 dark:text-white bg-blue-500 text-white' : 'bg-gray-50 text-gray-900',
                             'text-sm rounded-lg border border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:hover:bg-blue-500 dark:hover:text-white w-full transition-colors duration-200'
                         ]">
                         {{ option.text }}
                     </button>
                 </div>
             </div>
-            <div class="mx-auto w-2/4 my-10">
+            <div v-if="businessOpportunities.length" class="mx-auto w-2/4 my-10">
                 <label for="budget" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What is your
                     approximate budget for AI consulting services? (Please select the most appropriate range)</label>
                 <div id="budget" class="space-y-2">
@@ -162,7 +168,7 @@
                     </template>
                 </div>
             </div>
-            <div class="mx-auto w-2/4 my-10">
+            <div class="mx-auto w-2/4 my-10" v-if="businessBudget">
                 <label for="implementation-timeline"
                     class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What is your preferred timeline for
                     implementing AI solutions in your organization? (Please select the most appropriate range)</label>
@@ -179,14 +185,17 @@
                 </div>
             </div>
 
-            <div class="mx-auto w-2/4 my-10">
-                <label for="implementation-timeline"
-                    class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Are there any specific concerns or
+            <div class="mx-auto w-2/4 my-10" v-if="implementationTimeline">
+                <label for="specific-concerns" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Are
+                    there any specific concerns or
                     requirements you would like us to address during the AI consulting process?
                 </label>
-                <textarea id="message" rows="4"
+                <textarea id="specific-concerns" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Please write your thoughts here..."></textarea>
+            </div>
+
+            <div>
             </div>
 
 
@@ -195,7 +204,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSiteStore } from '~~/stores/siteStore';
+import { useSiteStore } from '~/stores/siteStore';
 const siteStore = useSiteStore()
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
@@ -228,7 +237,19 @@ function toggleOption(value: any, array: any[]) {
     }
 }
 
-const budgeSteps = [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
+function validateInput(field: string) {
+    return field.length > 3
+}
+
+
+function validateEmail() {
+    const regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    if (regex.test(businessEmail.value)) {
+        return true
+    } else {
+        return false
+    }
+}
 
 const businessSizes: Option[] = [
     { value: 'micro', text: 'Micro (less than $2 million)' },
@@ -292,11 +313,16 @@ const opportunities: Option[] = [
     { value: 'other_opportunities', text: 'Other business opportunities' },
 ];
 
-const businessSize = ref('micro');
-const businessIndustry = ref('ict')
+const businessEmail = ref('')
+const businessFirstName = ref('')
+const businessLastName = ref('')
+const businessPhone = ref('')
+const businessName = ref('')
+const businessSize = ref('');
+const businessIndustry = ref('')
 const businessAiTech = ref<string[]>([]);
 const businessOpportunities = ref<string[]>([]);
-const businessBudget = ref('10000');
+const businessBudget = ref('');
 
 const budgetOptions = [
     { value: 'less_than_10000', text: 'Less than $10,000' },
