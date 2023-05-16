@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // ...
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon","nuxt-mongoose"],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
@@ -9,4 +9,9 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+   mongoose: {
+    uri: process.env.MONGODB_URI,
+    options: {},
+  },
 });
+

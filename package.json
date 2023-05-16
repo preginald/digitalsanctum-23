@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.9",
+    "dotenv": "^16.0.3",
+    "nuxt-mongoose": "^0.0.5",
     "pinia": "^2.0.35"
   }
 }
