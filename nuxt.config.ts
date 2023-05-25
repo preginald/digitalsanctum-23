@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	  // server config variable
+  // server config variable
   runtimeConfig: {
     MONGO_URI: process.env.MONGO_URI,
   },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon", "@nuxt/content"],
   nitro: {
     plugins: ["@/server/db/index.ts"],
   },
