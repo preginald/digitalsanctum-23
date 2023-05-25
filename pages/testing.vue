@@ -1,7 +1,9 @@
 <template>
-  <div>{{ user }}</div>
+  <div>{{ userStore.user }}</div>
 </template>
 <script setup lang="ts">
-const mongoose = useMongoose()
-const user = await mongoose.db.collection('users').findOne()
+import { useUserStore } from '~/stores/userStore';
+const userStore = useUserStore()
+const email = ""
+await userStore.getUserByEmail(email)
 </script>
