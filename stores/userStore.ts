@@ -3,7 +3,12 @@ import { defineStore } from "pinia";
 export const useUserStore = defineStore("UserStore", {
     state: () => {
         return {
-            user: {}
+            user: {
+                email: "",
+                name: "",
+                first_name: "",
+                last_name: "",
+            }
         }
     },
     actions: {
@@ -12,6 +17,7 @@ export const useUserStore = defineStore("UserStore", {
                 "/api/user/" + email
             );
             this.user = user;
+            return user
         },
     }
 })
