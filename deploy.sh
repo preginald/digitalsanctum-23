@@ -4,7 +4,7 @@
 git pull
 
 # Install dependancies
-yarn install
+npm install
 
 # Build the project
 npm run build
