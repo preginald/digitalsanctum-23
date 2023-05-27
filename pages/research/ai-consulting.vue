@@ -47,24 +47,25 @@
         <div class="container mx-auto px-4">
             <div class="mx-auto w-2/4 my-10">
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email" v-model="businessEmail"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                        placeholder=" " required />
-                    <label for="floating_email"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                    <label for="email" class="block text-gray-500 dark:text-gray-400">Please enter business email
                         address</label>
+                    <input type="email" name="email" id="email" v-model="businessEmail"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+                        placeholder="business email" required />
+
                 </div>
-                <div class="grid md:grid-cols-2 md:gap-6" v-if="validateEmail()">
+                <button @click="fetchUser()" v-if="validateEmail()" class="btn-primary">Start</button>
+                <div class="grid md:grid-cols-2 md:gap-6" v-if="false">
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_first_name" id="floating_first_name" v-model="businessFirstName"
-                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " required />
-                        <label for="floating_first_name"
+                        <label for="first_name"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First
                             name</label>
+                        <input type="text" name="first_name" id="first_name" v-model="user.first_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" " required />
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" v-model="businessLastName"
+                        <input type="text" name="floating_last_name" id="floating_last_name" v-model="user.last_name"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="floating_last_name"
@@ -72,7 +73,8 @@
                             name</label>
                     </div>
                 </div>
-                <div class="grid md:grid-cols-2 md:gap-6" v-if="businessFirstName && businessLastName">
+
+                <div class="grid md:grid-cols-2 md:gap-6" v-if="user.first_name && user.last_name">
                     <div class="relative z-0 w-full mb-6 group">
                         <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"
                             v-model="businessPhone"
@@ -204,6 +206,8 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '~/stores/userStore';
+const userStore = useUserStore()
 import { useSiteStore } from '~/stores/siteStore';
 const siteStore = useSiteStore()
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
@@ -213,9 +217,22 @@ const aiBackgroundImage = computed(() => {
     return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
 });
 
+let user = ref({
+    email: "",
+    name: "",
+    first_name: "",
+    last_name: ""
+})
+
 interface Option {
     value: string;
     text: string;
+}
+
+async function fetchUser() {
+    await userStore.getUserByEmail(businessEmail.value)
+    user.value.first_name = userStore.user.first_name
+    user.value.last_name = userStore.user.last_name
 }
 
 function sortByKey<T>(key: keyof T, order: 'asc' | 'desc' = 'desc') {
