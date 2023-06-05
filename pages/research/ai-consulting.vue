@@ -1,10 +1,10 @@
 <template>
     <!-- AI Consulting for Improved Workflow and Productivity -->
     <section>
-        <!-- {{ userStore.user }}
-        {{ userStore.session }}
-        {{ status }}
-        <div>
+        <!-- {{ userStore.user }} -->
+        <!-- {{ userStore.session }} -->
+        <!-- {{ status }} -->
+        <!-- <div>
             {{ userStore.form }}
         </div> -->
         <div v-if="!userStore.session" class="container mx-auto px-4">
@@ -14,6 +14,12 @@
                         and continue.</h2>
                 </div>
                 <div v-else class="relative z-0 w-full mb-6 group">
+                    <p>
+                        To ensure genuine responses and prevent spam, we ask for your email address. The survey form will be
+                        accessible once you verify your email by clicking on the one-time password link sent to your inbox.
+                        Your email and other personal data will be stored securely, and your privacy is our priority.
+                        <NuxtLink to="/policies/privacy">See our Privacy Policy for more details</NuxtLink>.
+                    </p>
                     <label for="email" class="block text-gray-500 dark:text-gray-400">Please enter business email
                         address</label>
                     <input type="email" name="email" id="email" v-model="userStore.user.email"
@@ -21,10 +27,11 @@
                         placeholder="business email" required />
                     <button @click="processEmail()" v-if="validateEmail()" class="btn-primary">Verify email</button>
                 </div>
+                <!-- {{ userStore.form }}
                 <div v-if="userStore.form.email.mode" class="relative z-0 w-full mb-6 group">
                     <label for="email" class="block text-gray-500 dark:text-gray-400">Email verified!</label>
                     <h2>{{ userStore.user.email }}</h2>
-                </div>
+                </div> -->
             </div>
         </div>
         <div v-else class="container mx-auto px-4">
@@ -64,7 +71,7 @@
                                 placeholder=" " required />
                             <label for="floating_phone"
                                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
-                                number (landline or mobile)</label>
+                                (landline / mobile)</label>
                         </div>
                     </div>
                     <div v-if="userStore.user.phone" class="grid md:grid-cols-2 md:gap-6">
@@ -103,7 +110,7 @@
                 </div>
             </div>
 
-            <div class="mx-auto w-2/4 my-10">
+            <div v-if="userStore.user.business_name && userStore.form.names.mode == 'read'" class="mx-auto w-2/4 my-10">
                 <label for="budget" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Please select the
                     category that best describes the size of {{ userStore.user.business_name }} based on annual
                     turnover:</label>
@@ -187,7 +194,7 @@
                     </button>
                 </div>
             </div>
-            <div v-if="(!AIUse && userStore.user.research.ai_tech.length === 0) || userStore.user.research.ai_tech.length"
+            <div v-if="(!AIUse && userStore.user.research.ai_tech.length > 0) || userStore.user.research.ai_tech.length"
                 class="mx-auto w-2/4 my-10">
                 <label for="business-opportunities"
                     class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What specific business
