@@ -110,8 +110,11 @@ export const useUserStore = defineStore("UserStore", {
                 throw new Error("Failed to create token");
             }
 
+
             const createdAt = (tokenResponse.value as Token).createdAt;
+            const token = (tokenResponse.value as Token).token;
             const active = this.isWithinTwoMinutes(createdAt)
+            await this.sendEmail(token)
 
             return active
         },
@@ -156,6 +159,8 @@ export const useUserStore = defineStore("UserStore", {
                 method: "PUT",
                 body: user.value,
             })
+
+            this.form.names.mode = "read"
 
             return updatedUser
 
@@ -229,6 +234,25 @@ export const useUserStore = defineStore("UserStore", {
             } else {
                 return false
             }
+        },
+        async sendEmail(token: string) {
+            const config = useRuntimeConfig()
+            const X_API_KEY = config.X_API_KEY
+            const { data: response } = fetch(
+                'http://192.168.1.211:5000/send_email',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': 'boomshakalaka'
+                    },
+                    body: JSON.stringify({
+                        to: this.user.email,
+                        subject: 'Your one time token to Digital Sanctum',
+                        body: `Hi ${this.user.first_name},\n\nPlease click the following link to complete the email verification to access Digital Sanctum online services. The token and link is valid for 5 minutes.\n\nhttps://www.digitalsanctum.com.au/token/${token}\n\nThis OTP will be used to verify the device you are logging in from. For account safety, do not share your OTP with others.`
+                    })
+                }
+            )
         }
     }
 })

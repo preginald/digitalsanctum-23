@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   // server config variable
   runtimeConfig: {
     MONGO_URI: process.env.MONGO_URI,
+    X_API_KEY: process.env.X_API_KEY,
   },
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon", "@nuxt/content"],
   nitro: {
