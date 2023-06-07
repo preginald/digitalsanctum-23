@@ -239,7 +239,7 @@ export const useUserStore = defineStore("UserStore", {
             const config = useRuntimeConfig()
             const X_API_KEY = config.X_API_KEY
             const { data: response } = fetch(
-                'http://192.168.1.211:5000/send_email',
+                'https://dispatch.digitalsanctum.com.au/send_email',
                 {
                     method: 'POST',
                     headers: {
