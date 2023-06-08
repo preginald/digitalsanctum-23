@@ -53,6 +53,12 @@
                                 Leveraging ChatGPT for Unfilled Roles in Small Businesses
                             </NuxtLink>
                         </li>
+                        <li>
+                            <NuxtLink to="/guides/app-success-evaluation-framework"
+                                class="text-blue-400 hover:text-blue-300">
+                                App Success Evaluation Framework
+                            </NuxtLink>
+                        </li>
                         <!-- <li>
                             <NuxtLink to="/policies/terms-and-conditions" class="text-blue-400 hover:text-blue-300">
                                 Terms & conditions
