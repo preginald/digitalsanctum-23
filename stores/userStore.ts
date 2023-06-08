@@ -236,6 +236,7 @@ export const useUserStore = defineStore("UserStore", {
             }
         },
         async sendEmail(token: string) {
+            const greeting = this.user.first_name === undefined ? "Hi," : `Hi ${this.user.first_name}`
             const config = useRuntimeConfig()
             const X_API_KEY = config.X_API_KEY
             const { data: response } = fetch(
@@ -249,7 +250,7 @@ export const useUserStore = defineStore("UserStore", {
                     body: JSON.stringify({
                         to: this.user.email,
                         subject: 'Your one time token to Digital Sanctum',
-                        body: `Hi ${this.user.first_name},\n\nPlease click the following link to complete the email verification to access Digital Sanctum online services. The token and link is valid for 5 minutes.\n\nhttps://www.digitalsanctum.com.au/token/${token}\n\nThis OTP will be used to verify the device you are logging in from. For account safety, do not share your OTP with others.`
+                        body: `${greeting}\n\nPlease click the following link to complete the email verification to access Digital Sanctum online services. The token and link is valid for 5 minutes.\n\nhttps://www.digitalsanctum.com.au/token/${token}\n\nThis OTP will be used to verify the device you are logging in from. For account safety, do not share your OTP with others.`
                     })
                 }
             )
