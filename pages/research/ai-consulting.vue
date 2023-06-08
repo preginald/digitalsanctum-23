@@ -2,7 +2,7 @@
     <!-- AI Consulting for Improved Workflow and Productivity -->
     <section>
         <!-- {{ userStore.user }} -->
-        <!-- {{ userStore.session }} -->
+        {{ userStore.session }}
         <!-- {{ status }} -->
         <!-- <div>
             {{ userStore.form }}
