@@ -1,8 +1,8 @@
 <template>
     <!-- AI Consulting for Improved Workflow and Productivity -->
     <section>
-        <!-- {{ userStore.user }} -->
-        {{ userStore.session }}
+        {{ userStore.user }}
+        <!-- {{ userStore.session }} -->
         <!-- {{ status }} -->
         <!-- <div>
             {{ userStore.form }}
@@ -191,7 +191,6 @@
                         </div>
                     </template>
                 </div>
-                <div>{{ userStore.user.research.ai_tech }}</div>
                 <div v-if="userStore.user.research.ai_use" id="business-ai-tech" class="space-y-2">
                     <label for="business-ai-tech"
                         class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Please select the AI
