@@ -89,8 +89,6 @@
                                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
                                 (landline / mobile)</label>
                         </div>
-                    </div>
-                    <div v-if="userStore.user.phone" class="grid md:grid-cols-2 md:gap-6">
                         <div v-if="validatePhoneNumber(userStore.user.phone)" class="relative z-0 w-full mb-6 group">
                             <input type="text" name="floating_company" id="floating_company"
                                 v-model="userStore.user.business_name"
@@ -377,10 +375,11 @@ function validateEmail() {
 
 
 function validatePhoneNumber(phoneNumber: string): boolean {
+
     // Remove white spaces from the phone number
     phoneNumber = phoneNumber.replace(/\s/g, "");
 
-    // Mobile number (starts with 04), 10 characters long
+    // Mobile number(starts with 04), 10 characters long
     if (/^04\d{8}$/.test(phoneNumber) && phoneNumber.length === 10) {
         return true;
     }
@@ -391,7 +390,8 @@ function validatePhoneNumber(phoneNumber: string): boolean {
     }
 
     // Local Melbourne number, 8 characters long
-    if (/^\d{8}$/.test(phoneNumber) && phoneNumber.length === 8) {
+    const localPrefixes = ['02', '03', '04', '07', '08'];
+    if (phoneNumber.length === 8 && !localPrefixes.some(prefix => phoneNumber.startsWith(prefix))) {
         return true;
     }
 

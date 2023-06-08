@@ -68,7 +68,7 @@ export const useUserStore = defineStore("UserStore", {
             this.user.email = user.email;
             this.user.first_name = user.first_name;
             this.user.last_name = user.last_name;
-            this.user.phone = user.phone;
+            this.user.phone = user.phone === undefined ? "" : user.phone
             this.user.business_name = user.business_name;
             this.user.business_size = user.business_size;
             this.user.employee_count = user.employee_count;
