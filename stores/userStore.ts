@@ -114,9 +114,9 @@ export const useUserStore = defineStore("UserStore", {
             const createdAt = (tokenResponse.value as Token).createdAt;
             const token = (tokenResponse.value as Token).token;
             const active = this.isWithinTwoMinutes(createdAt)
-            await this.sendEmail(token)
+            const response = await this.sendEmail(token)
 
-            return active
+            return { active, response }
         },
 
         async saveUserResearchByEmail(): Promise<void> {
@@ -236,11 +236,12 @@ export const useUserStore = defineStore("UserStore", {
             }
         },
         async sendEmail(token: string) {
+            const smtp_address = 'https://dispatch.digitalsanctum.com.au/send_email'
             const greeting = this.user.first_name === undefined ? "Hi," : `Hi ${this.user.first_name}`
             const config = useRuntimeConfig()
             const X_API_KEY = config.X_API_KEY
-            const { data: response } = fetch(
-                'https://dispatch.digitalsanctum.com.au/send_email',
+            const response = fetch(
+                smtp_address,
                 {
                     method: 'POST',
                     headers: {
@@ -254,6 +255,7 @@ export const useUserStore = defineStore("UserStore", {
                     })
                 }
             )
+            return response
         }
     }
 })
