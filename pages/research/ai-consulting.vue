@@ -1,12 +1,17 @@
 <template>
     <!-- AI Consulting for Improved Workflow and Productivity -->
     <section>
-        {{ userStore.user }}
+        <!-- {{ userStore.user }} -->
         <!-- {{ userStore.session }} -->
         <!-- {{ status }} -->
         <!-- <div>
             {{ userStore.form }}
         </div> -->
+        <div class="container mx-auto px-4">
+            <div class="mx-auto w-2/4 my-10">
+                <h2>AI Consulting Registration</h2>
+            </div>
+        </div>
         <div v-if="!userStore.session" class="container mx-auto px-4">
             <div class="mx-auto w-2/4 my-10">
                 <div v-if="status && dispatch == '200'" class="relative z-0 w-full mb-6 group">
@@ -48,7 +53,7 @@
         <div v-else class="container mx-auto px-4">
             <div id="names" class="mx-auto w-2/4 my-10">
                 <div class="grid md:grid-cols-2 md:gap-6">
-                    <h2>Token confirmed!</h2>
+                    <h3>Token confirmed!</h3>
                     <p>{{ userStore.user.email }}</p>
                 </div>
                 <div v-if="userStore.form.names.mode == 'edit'">
@@ -309,17 +314,6 @@ interface Option {
     text: string;
 }
 
-function checkResearch() {
-    if (userStore.user.research === undefined) {
-        userStore.user.research = {
-            ai_use: null,
-            ai_tech: [],
-            opportunities: [],
-            budget: "",
-            implementation_timeline: ""
-        }
-    }
-}
 
 const isButtonDisabled = ref(false)
 
@@ -506,8 +500,5 @@ const timelineOptions = [
 
 const implementationTimeline = ref('');
 
-onMounted(() => {
-    checkResearch();
-});
 
 </script>

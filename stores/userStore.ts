@@ -73,8 +73,23 @@ export const useUserStore = defineStore("UserStore", {
             this.user.business_size = user.business_size;
             this.user.employee_count = user.employee_count;
             this.user.business_industry = user.business_industry;
-            this.user.research = user.research;
+            if (user.research === undefined) {
+                this.setUserResearch()
+            } else {
+                this.user.research = user.research;
+            }
         },
+
+        setUserResearch() {
+            this.user.research = {
+                ai_use: null,
+                ai_tech: [],
+                opportunities: [],
+                budget: "",
+                implementation_timeline: ""
+            }
+        },
+
         async createUser(data: {}): Promise<void> {
             await $fetch("/api/user/create", {
                 method: "POST",
