@@ -304,8 +304,6 @@ const form = { email: false, names: false }
 const status = ref(false)
 const dispatch = ref("")
 
-checkResearch()
-
 interface Option {
     value: string;
     text: string;
@@ -508,5 +506,8 @@ const timelineOptions = [
 
 const implementationTimeline = ref('');
 
+onMounted(() => {
+    checkResearch();
+});
 
 </script>
