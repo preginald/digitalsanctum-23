@@ -8,6 +8,8 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     if (to.name === 'token-id') {
         const id = to.params.id
         token = await userStore.getTokenById(id)
+        const tokenCookie = useCookie("token")
+        tokenCookie.value = id
     }
 
     if (token && token.status === "active") {
