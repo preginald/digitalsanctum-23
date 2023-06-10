@@ -98,11 +98,11 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async getUserByEmail(email: string): Promise<any> {
-            const { data: userResponse } = await useFetch("/api/user/" + email);
-            if (userResponse.value?.email === undefined) {
+            const userResponse = await $fetch("/api/user/" + email);
+            if (userResponse.email === undefined) {
                 await this.createUser({ email });
             } else {
-                const user = userResponse.value as User;
+                const user = userResponse as User;
                 this.setUser(user)
                 this.validateEmail()
                 this.validateNames()
@@ -115,7 +115,7 @@ export const useUserStore = defineStore("UserStore", {
             const email = this.user.email;
             await this.getUserByEmail(this.user.email);
 
-            const { data: tokenResponse } = await useFetch("/api/token/create", {
+            const { data: tokenResponse } = await $fetch("/api/token/create", {
                 method: "POST",
                 body: { email, referrer },
             });
@@ -135,7 +135,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveUserResearchByEmail(): Promise<void> {
-            const { data: user } = await useFetch("/api/user/" + this.user.email);
+            const { data: user } = await $fetch("/api/user/" + this.user.email);
 
             if (!user.value || user.value.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -147,7 +147,7 @@ export const useUserStore = defineStore("UserStore", {
             user.value.employee_count = this.user.employee_count;
             user.value.research = this.user.research;
 
-            const { data: updatedUser } = await useFetch("/api/user/update/" + user.value.email, {
+            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
                 body: user.value,
             })
@@ -159,7 +159,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveUserInfoByEmail(): Promise<void> {
-            const { data: user } = await useFetch("/api/user/" + this.user.email);
+            const { data: user } = await $fetch("/api/user/" + this.user.email);
 
             if (!user.value || user.value.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -170,7 +170,7 @@ export const useUserStore = defineStore("UserStore", {
             user.value.phone = this.user.phone;
             user.value.business_name = this.user.business_name;
 
-            const { data: updatedUser } = await useFetch("/api/user/update/" + user.value.email, {
+            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
                 body: user.value,
             })
@@ -182,7 +182,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveResearchByEmail(): Promise<void> {
-            const { data: user } = await useFetch("/api/user/" + this.user.email);
+            const { data: user } = await $fetch("/api/user/" + this.user.email);
 
             if (!user.value || user.value.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -196,7 +196,7 @@ export const useUserStore = defineStore("UserStore", {
             user.value.phone = this.user.phone;
             user.value.business_name = this.user.business_name;
 
-            const { data: updatedUser } = await useFetch("/api/user/update/" + user.value.email, {
+            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
                 body: user.value,
             })
