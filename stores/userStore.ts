@@ -120,14 +120,14 @@ export const useUserStore = defineStore("UserStore", {
                 body: { email, referrer },
             });
 
-            if (tokenResponse.value === null) {
+            if (tokenResponse === null) {
                 // Handle error case
                 throw new Error("Failed to create token");
             }
 
 
-            const createdAt = (tokenResponse.value as Token).createdAt;
-            const token = (tokenResponse.value as Token).token;
+            const createdAt = (tokenResponse as Token).createdAt;
+            const token = (tokenResponse as Token).token;
             const active = this.isWithinTwoMinutes(createdAt)
             const response = await this.sendEmail(token)
 
@@ -137,19 +137,19 @@ export const useUserStore = defineStore("UserStore", {
         async saveUserResearchByEmail(): Promise<void> {
             const { data: user } = await $fetch("/api/user/" + this.user.email);
 
-            if (!user.value || user.value.email === undefined) {
+            if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
             }
 
-            user.value.business_size = this.user.business_size;
-            user.value.business_industry = this.user.business_industry;
-            user.value.employee_count = this.user.employee_count;
-            user.value.employee_count = this.user.employee_count;
-            user.value.research = this.user.research;
+            user.business_size = this.user.business_size;
+            user.business_industry = this.user.business_industry;
+            user.employee_count = this.user.employee_count;
+            user.employee_count = this.user.employee_count;
+            user.research = this.user.research;
 
-            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
+            const { data: updatedUser } = await $fetch("/api/user/update/" + user.email, {
                 method: "PUT",
-                body: user.value,
+                body: user,
             })
 
             console.log("User research saved!")
@@ -161,18 +161,18 @@ export const useUserStore = defineStore("UserStore", {
         async saveUserInfoByEmail(): Promise<void> {
             const { data: user } = await $fetch("/api/user/" + this.user.email);
 
-            if (!user.value || user.value.email === undefined) {
+            if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
             }
 
-            user.value.first_name = this.user.first_name;
-            user.value.last_name = this.user.last_name;
-            user.value.phone = this.user.phone;
-            user.value.business_name = this.user.business_name;
+            user.first_name = this.user.first_name;
+            user.last_name = this.user.last_name;
+            user.phone = this.user.phone;
+            user.business_name = this.user.business_name;
 
             const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
-                body: user.value,
+                body: user,
             })
 
             this.form.names.mode = "read"
@@ -184,21 +184,21 @@ export const useUserStore = defineStore("UserStore", {
         async saveResearchByEmail(): Promise<void> {
             const { data: user } = await $fetch("/api/user/" + this.user.email);
 
-            if (!user.value || user.value.email === undefined) {
+            if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
             }
 
-            user.value.business_size = this.user.business_size;
-            user.value.business_industry = this.user.business_industry;
-            user.value.employee_count = this.user.employee_count;
-            user.value.employee_count = this.user.employee_count;
-            user.value.research = this.user.research;
-            user.value.phone = this.user.phone;
-            user.value.business_name = this.user.business_name;
+            user.business_size = this.user.business_size;
+            user.business_industry = this.user.business_industry;
+            user.employee_count = this.user.employee_count;
+            user.employee_count = this.user.employee_count;
+            user.research = this.user.research;
+            user.phone = this.user.phone;
+            user.business_name = this.user.business_name;
 
             const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
-                body: user.value,
+                body: user,
             })
 
             return updatedUser
