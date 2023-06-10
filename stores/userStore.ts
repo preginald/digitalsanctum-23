@@ -206,23 +206,21 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async getTokenById(id: string): Promise<{ status: string; referrer: string }> {
-            const { data: tokenResponse } = await useFetch("/api/token/" + id);
+            const tokenResponse: Token = await $fetch("/api/token/" + id);
 
-            if (!tokenResponse.value) {
+            if (!tokenResponse) {
                 console.log("Token not found");
                 return { status: "invalid", referrer: "" };
             }
 
-            const tokenValue = tokenResponse as { value: Token };
-
-            if (this.isWithinTwoMinutes(tokenValue.value.createdAt)) {
-                this.user.email = tokenValue.value.email;
+            if (this.isWithinTwoMinutes(tokenResponse.createdAt)) {
+                this.user.email = tokenResponse.email;
                 this.getUserByEmail(this.user.email);
                 this.session = true
-                return { status: "active", referrer: tokenValue.value.referrer };
+                return { status: "active", referrer: tokenResponse.referrer };
             } else {
                 this.session = false
-                return { status: "expired", referrer: tokenValue.value.referrer };
+                return { status: "expired", referrer: tokenResponse.referrer };
             }
         },
         isWithinTwoMinutes(createdAt: string): boolean {
