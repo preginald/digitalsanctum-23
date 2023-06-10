@@ -169,7 +169,7 @@ export const useUserStore = defineStore("UserStore", {
             user.phone = this.user.phone;
             user.business_name = this.user.business_name;
 
-            const updatedUser = await $fetch("/api/user/update/" + user.value.email, {
+            const updatedUser = await $fetch("/api/user/update/" + user.email, {
                 method: "PUT",
                 body: user,
             })
@@ -195,7 +195,7 @@ export const useUserStore = defineStore("UserStore", {
             user.phone = this.user.phone;
             user.business_name = this.user.business_name;
 
-            const updatedUser = await $fetch("/api/user/update/" + user.value.email, {
+            const updatedUser = await $fetch("/api/user/update/" + user.email, {
                 method: "PUT",
                 body: user,
             })
