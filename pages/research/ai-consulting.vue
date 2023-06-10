@@ -194,7 +194,7 @@
                         </div>
                     </template>
                 </div>
-                <div v-if="userStore.user.research.ai_use" id="business-ai-tech" class="space-y-2">
+                <div v-if="userStore.user.research.ai_use" id="business-ai-tech" class="my-10 space-y-2">
                     <label for="business-ai-tech"
                         class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Please select the AI
                         technologies previously implemented.</label>
@@ -207,7 +207,7 @@
                     </button>
                 </div>
             </div>
-            <div v-if="(!AIUse && userStore.user.research.ai_tech.length > 0) || userStore.user.research.ai_tech.length"
+            <div v-if="!userStore.user.research.ai_use == undefined || (userStore.user.research.ai_use == false && userStore.user.business_industry) || (userStore.user.research.ai_use && userStore.user.research.ai_tech.length > 0)"
                 class="mx-auto w-2/4 my-10">
                 <label for="business-opportunities"
                     class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">What specific business
@@ -260,21 +260,10 @@
                 </div>
             </div>
 
-            <!-- <div class="mx-auto w-2/4 my-10" v-if="userStore.user.research.implementation_timeline">
-                <label for="specific-concerns" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Are
-                    there any specific concerns or
-                    requirements you would like us to address during the AI consulting process?
-                </label>
-                <textarea id="specific-concerns" rows="4"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Please write your thoughts here..."></textarea>
-            </div> -->
-
-            <div class="mx-auto w-2/4 my-10" v-if="userStore.user.research.implementation_timeline">
-                <button @click="saveResearch()" v-if="validateInput(userStore.user.business_name, 3)"
-                    class="btn-primary">Save and continue</button>
+            <div class="mx-auto w-2/4 my-10 text-sm font-medium text-gray-900 dark:text-gray-300"
+                v-if="userStore.user.research.implementation_timeline">
+                Thank you for completing this questionnaire. Your answers have been saved automatically.
             </div>
-
 
         </div>
     </section>
@@ -307,7 +296,7 @@ let user = ref({
 if (tokenCookie.value) {
     userStore.getTokenById(tokenCookie.value)
 }
-const form = { email: false, names: false }
+const form = { email: false, names: false, completed: false }
 const status = ref(false)
 const dispatch = ref("")
 
@@ -329,7 +318,7 @@ async function processEmail() {
 
 async function saveNamesAndNumber() {
     const result = await userStore.saveUserInfoByEmail()
-    if (result.value) {
+    if (result) {
         form.names = true
         console.log(form)
     }
@@ -337,9 +326,8 @@ async function saveNamesAndNumber() {
 
 async function saveResearch() {
     const result = await userStore.saveUserResearchByEmail()
-    if (result.value) {
-        form.names = true
-        console.log(form)
+    if (result.research.implementation_timeline) {
+        form.completed = true
     }
 }
 
