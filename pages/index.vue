@@ -64,11 +64,6 @@
             </p>
           </div>
         </div>
-        <!-- <div class="text-center mt-12">
-          <button class="bg-blue-500 text-white px-8 py-3 rounded">
-            Learn More About Our Services
-          </button>
-        </div> -->
       </div>
     </section>
 
@@ -237,13 +232,6 @@
 
         </div>
 
-        <!-- <div class="grid grid-cols-3 gap-8 mt-3">
-          <div></div>
-          <button class="bg-blue-500 text-white px-8 py-3 rounded">
-            Explore AI Consulting Services
-          </button>
-          <div></div>
-        </div> -->
       </div>
     </section>
     <Contact />
