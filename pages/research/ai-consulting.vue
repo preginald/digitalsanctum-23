@@ -290,6 +290,7 @@ const siteStore = useSiteStore()
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 
+const tokenCookie = useCookie("token")
 const path: string = useRoute().path;
 
 const aiBackgroundImage = computed(() => {
@@ -303,6 +304,9 @@ let user = ref({
     last_name: ""
 })
 
+if (tokenCookie.value) {
+    userStore.getTokenById(tokenCookie.value)
+}
 const form = { email: false, names: false }
 const status = ref(false)
 const dispatch = ref("")
@@ -499,6 +503,4 @@ const timelineOptions = [
 ];
 
 const implementationTimeline = ref('');
-
-
 </script>
