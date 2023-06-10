@@ -115,7 +115,7 @@ export const useUserStore = defineStore("UserStore", {
             const email = this.user.email;
             await this.getUserByEmail(this.user.email);
 
-            const { data: tokenResponse } = await $fetch("/api/token/create", {
+            const tokenResponse = await $fetch("/api/token/create", {
                 method: "POST",
                 body: { email, referrer },
             });
@@ -125,9 +125,8 @@ export const useUserStore = defineStore("UserStore", {
                 throw new Error("Failed to create token");
             }
 
-
-            const createdAt = (tokenResponse as Token).createdAt;
-            const token = (tokenResponse as Token).token;
+            const createdAt = tokenResponse.createdAt;
+            const token = tokenResponse.token;
             const active = this.isWithinTwoMinutes(createdAt)
             const response = await this.sendEmail(token)
 
@@ -135,7 +134,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveUserResearchByEmail(): Promise<void> {
-            const { data: user } = await $fetch("/api/user/" + this.user.email);
+            const user = await $fetch("/api/user/" + this.user.email);
 
             if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -147,7 +146,7 @@ export const useUserStore = defineStore("UserStore", {
             user.employee_count = this.user.employee_count;
             user.research = this.user.research;
 
-            const { data: updatedUser } = await $fetch("/api/user/update/" + user.email, {
+            const updatedUser = await $fetch("/api/user/update/" + user.email, {
                 method: "PUT",
                 body: user,
             })
@@ -159,7 +158,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveUserInfoByEmail(): Promise<void> {
-            const { data: user } = await $fetch("/api/user/" + this.user.email);
+            const user = await $fetch("/api/user/" + this.user.email);
 
             if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -170,7 +169,7 @@ export const useUserStore = defineStore("UserStore", {
             user.phone = this.user.phone;
             user.business_name = this.user.business_name;
 
-            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
+            const updatedUser = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
                 body: user,
             })
@@ -182,7 +181,7 @@ export const useUserStore = defineStore("UserStore", {
         },
 
         async saveResearchByEmail(): Promise<void> {
-            const { data: user } = await $fetch("/api/user/" + this.user.email);
+            const user = await $fetch("/api/user/" + this.user.email);
 
             if (!user || user.email === undefined) {
                 throw new Error("User not found"); // Handle the case when user is not found
@@ -196,7 +195,7 @@ export const useUserStore = defineStore("UserStore", {
             user.phone = this.user.phone;
             user.business_name = this.user.business_name;
 
-            const { data: updatedUser } = await $fetch("/api/user/update/" + user.value.email, {
+            const updatedUser = await $fetch("/api/user/update/" + user.value.email, {
                 method: "PUT",
                 body: user,
             })
