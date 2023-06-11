@@ -46,6 +46,9 @@
                         </NuxtLink>
                     </li>
                     <li>
+                        <button class="dark:text-white" v-if="userStore.session" @click="signOut()">Sign out</button>
+                    </li>
+                    <li>
                         <button @click="toggleTheme">
                             <Icon class="dark:text-white text-xl" :name="themeIcon()" />
                         </button>
@@ -59,6 +62,9 @@
 <script setup lang="ts">
 import { useSiteStore } from '~~/stores/siteStore';
 const siteStore = useSiteStore()
+import { useUserStore } from '~/stores/userStore';
+const userStore = useUserStore()
+
 const route = useRoute();
 var menuOpen = ref(false)
 const toggleMenu = () => {
@@ -67,6 +73,18 @@ const toggleMenu = () => {
 
 const themeIcon = () => {
     return siteStore.theme === "dark" ? "mdi:white-balance-sunny" : "mdi:weather-night";
+}
+
+// var signedIn = ref(false)
+
+const tokenCookie = useCookie('token')
+userStore.session = tokenCookie.value ? true : false
+
+
+const signOut = () => {
+    const tokenCookie = useCookie('token')
+    tokenCookie.value = null
+    userStore.session = false
 }
 
 const toggleTheme = () => {
