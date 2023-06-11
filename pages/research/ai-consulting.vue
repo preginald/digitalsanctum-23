@@ -30,7 +30,8 @@
                     <input type="email" name="email" id="email" v-model="userStore.user.email"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
                         placeholder="business email" required />
-                    <button @click="processEmail()" :disabled="isButtonDisabled" v-if="validateEmail()" class="btn-primary">
+                    <button @click="processEmail()" :disabled="isButtonDisabled" v-if="validateEmail()"
+                        class="btn-primary mt-3">
                         <svg v-if="isButtonDisabled" aria-hidden="true" role="status"
                             class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -279,7 +280,10 @@ const siteStore = useSiteStore()
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 
-const tokenCookie = useCookie("token")
+definePageMeta({
+    middleware: ["token"]
+})
+
 const path: string = useRoute().path;
 
 const aiBackgroundImage = computed(() => {
@@ -293,9 +297,6 @@ let user = ref({
     last_name: ""
 })
 
-if (tokenCookie.value) {
-    userStore.getTokenById(tokenCookie.value)
-}
 const form = { email: false, names: false, completed: false }
 const status = ref(false)
 const dispatch = ref("")
