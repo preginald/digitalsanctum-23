@@ -3,23 +3,29 @@
     <section id="contact" class="py-16 bg-white dark:bg-gray-900 dark:text-silver-light text-charcoal-dark">
         <!-- <div class="container mx-auto px-4 text-center"> -->
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-            <h2 class="text-4xl font-bold mb-6">
-                Ready to Transform Your Business?
+            <h2 class="text-3xl font-bold mb-6">
+                Ready to Transform Your Business with AI?
             </h2>
-            <p hidden class="text-xl mb-12">
-                Get in touch with our team for a consultation or to learn more about our services.
-            </p>
-            <p class="text-xl mb-12">
-                Thank you for considering our services. We would like to inform you that,
-                due to an overwhelming demand and our commitment to providing exceptional service to our existing clients,
-                we are currently unable to take on any new clients until after 1st July 2023.
-            </p>
-            <p class="text-xl mb-12">
-                We appreciate your understanding and apologise for any inconvenience this may cause. Please feel free to
-                check back with us after 1st July 2023 for updates on our availability, and thank you once again for your
-                interest in our services.
-            </p>
-            <p class="text-xl mb-12">
+            <p class="text-lg mb-12">
+                Thank you for considering our services. We are excited about the prospect of helping you harness the power
+                of artificial intelligence.
+                <br />
+                <br />
+                While we're currently experiencing high demand and focusing on delivering exceptional service to our
+                existing clients, we're looking forward to expanding our capacity from 1st July 2023.
+                <br />
+                <br />
+                To ensure we can start helping you as soon as possible, we invite you to fill out our <NuxtLink
+                    class="underline" to="/research/ai-consulting">AI Discovery Form</NuxtLink>. This will allow us to
+                understand your needs in advance and
+                contact you promptly
+                as our capacity increases.
+                <br />
+                <br />
+                We appreciate your understanding and apologise for any inconvenience. Your interest in Digital Sanctum is
+                greatly appreciated, and we can't wait to begin this AI journey with you.
+                <br />
+                <br />
                 Warm regards,<br />
                 <br />
                 Peter Reginald,<br />
