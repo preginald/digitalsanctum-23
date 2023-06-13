@@ -15,11 +15,10 @@
                 existing clients, we're looking forward to expanding our capacity from 1st July 2023.
                 <br />
                 <br />
-                To ensure we can start helping you as soon as possible, we invite you to fill out our <NuxtLink
-                    class="underline" to="/research/ai-consulting">AI Discovery Form</NuxtLink>. This will allow us to
-                understand your needs in advance and
-                contact you promptly
-                as our capacity increases.
+                To ensure we embark on this exciting journey together without delay, we'd love for you to engage with our
+                <NuxtLink class="underline" to="/research/ai-consulting">AI Discovery Form</NuxtLink>. This innovative tool
+                enables us to proactively understand your unique AI aspirations and get in touch swiftly as our capacity to
+                ignite change increases.
                 <br />
                 <br />
                 We appreciate your understanding and apologise for any inconvenience. Your interest in Digital Sanctum is
