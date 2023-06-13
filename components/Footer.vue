@@ -88,6 +88,10 @@ const guides = [
         to: '/guides/introduction-to-large-language-models-llm',
         text: 'Introduction to Large Language Models'
     },
+    {
+        to: '/guides/introduction-to-midjourney',
+        text: 'Introduction to Midjourney'
+    },
     // Add more guide objects as needed
 ]
 </script>
