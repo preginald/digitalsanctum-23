@@ -2,9 +2,10 @@
     <!-- <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"> -->
     <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/" class="flex items-center">
+            <NuxtLink to="/"
+                class="flex items-center dark:text-silver-light dark:hover:text-vibrant-red-light text-vibrant-red-light">
                 <!-- <img :src="logo" class="h-10 mr-3 svg-fill" alt="Digital Sanctum Logo" /> -->
-                <div class="dark:text-silver-light text-vibrant-red-light mr-3">
+                <div class="mr-3">
                     <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 717.81 776.84">
                         <path
@@ -12,10 +13,9 @@
                             id="path271" />
                     </svg>
                 </div>
-                <span
-                    class="self-center text-2xl font-semibold whitespace-nowrap dark:text-silver-light text-vibrant-red-light">Digital
+                <span class="self-center text-2xl font-semibold whitespace-nowrap">Digital
                     Sanctum</span>
-            </a>
+            </NuxtLink>
             <button @click="toggleMenu" type="button"
                 class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-default" :aria-expanded="menuOpen">
