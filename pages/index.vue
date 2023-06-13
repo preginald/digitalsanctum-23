@@ -216,7 +216,8 @@
           </div>
           <div class="flex flex-col dark:bg-text-dark bg-text-light p-10 rounded-lg">
             <p class="mb-6">
-              We also specialise in prompt engineering, a technique used to improve
+              We also specialise in <NuxtLink to="/guides/introduction-to-prompt-engineering" class="underline">prompt
+                engineering</NuxtLink>, a technique used to improve
               the performance and efficiency of AI language models. By crafting
               effective prompts, we can ensure that your AI-driven solutions
               generate more accurate and relevant responses, ultimately enhancing
