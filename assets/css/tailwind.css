@@ -27,7 +27,7 @@ p {
 }
 
 ul {
-  @apply dark:text-gray-300 text-gray-600
+  @apply dark:text-gray-300 text-gray-600 mb-3
 }
 
 a {
