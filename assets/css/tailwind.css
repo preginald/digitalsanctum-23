@@ -26,6 +26,10 @@ p {
   @apply text-gray-900 dark:text-white mb-5;
 }
 
+ul {
+  @apply dark:text-white text-gray-600
+}
+
 hr {
   @apply h-px my-3 bg-gray-200 border-0 dark:bg-gray-700;
 }
