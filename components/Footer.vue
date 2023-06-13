@@ -46,24 +46,11 @@
                 <div class="md:col-span-2 lg:col-span-2">
                     <h5 class="text-sm font-bold mb-4 uppercase">Guides</h5>
                     <ul class="space-y-2">
-                        <li>
-                            <NuxtLink
-                                to="/guides/how-chatgpt-can-do-the-jobs-of-professionals-youve-held-off-hiring-in-your-small-business"
-                                class="text-blue-400 hover:text-blue-300">
-                                Leveraging ChatGPT for Unfilled Roles in Small Businesses
+                        <li v-for="(guide, index) in guides" :key="index">
+                            <NuxtLink :to="guide.to" class="text-blue-400 hover:text-blue-300">
+                                {{ guide.text }}
                             </NuxtLink>
                         </li>
-                        <li>
-                            <NuxtLink to="/guides/app-success-evaluation-framework"
-                                class="text-blue-400 hover:text-blue-300">
-                                App Success Evaluation Framework
-                            </NuxtLink>
-                        </li>
-                        <!-- <li>
-                            <NuxtLink to="/policies/terms-and-conditions" class="text-blue-400 hover:text-blue-300">
-                                Terms & conditions
-                            </NuxtLink>
-                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -75,3 +62,32 @@
         </div>
     </footer>
 </template>
+<script setup lang="ts">
+const guides = [
+    {
+        to: '/guides/how-chatgpt-can-do-the-jobs-of-professionals-youve-held-off-hiring-in-your-small-business',
+        text: 'Leveraging ChatGPT for Unfilled Roles in Small Businesses'
+    },
+    {
+        to: '/guides/app-success-evaluation-framework',
+        text: 'App Success Evaluation Framework'
+    },
+    {
+        to: '/guides/introduction-to-gpt',
+        text: 'Introduction to GPT'
+    },
+    {
+        to: '/guides/introduction-to-privategpt',
+        text: 'Introduction to PrivateGPT'
+    },
+    {
+        to: '/guides/introduction-to-prompt-engineering',
+        text: 'Introduction to Prompt Engineering'
+    },
+    {
+        to: '/guides/introduction-to-large-language-models-llm',
+        text: 'Introduction to Large Language Models'
+    },
+    // Add more guide objects as needed
+]
+</script>
