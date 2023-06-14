@@ -189,7 +189,7 @@
             </p>
           </div>
         </div>
-        <NuxtLink to="/about/business-principles" class="btn-primary">Our Business Principles</NuxtLink>
+        <!-- <NuxtLink to="/about/business-principles" class="btn-primary">Our Business Principles</NuxtLink> -->
       </div>
     </section>
 
