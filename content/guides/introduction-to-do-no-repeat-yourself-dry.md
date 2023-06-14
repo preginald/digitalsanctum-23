@@ -8,7 +8,7 @@ In the landscape of ever-evolving business needs, implementing DRY principles wi
 
 Moreover, reducing repetition inherently minimises the margin for human error. When tasks are automated based on DRY principles, the probability of errors or discrepancies occurring in repeated processes significantly decreases. This can lead to improved accuracy, reliability, and overall operational excellence.
 
-## III. DRY in Action: Real-Life Examples of Innovation in Business
+## DRY in Action: Real-Life Examples of Innovation in Business
 
 So, how does DRY look in action? Let's take a look at some real-life applications in a business setting. A simple example might be automating email responses. Rather than manually responding to similar types of inquiries, creating automated responses based on certain triggers can save immense time and ensure consistent communication.
 
