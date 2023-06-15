@@ -25,66 +25,28 @@
       <Nav />
     </div>
 
-    <!-- Our Services -->
-    <section id="our-services" class="py-16 dark:bg-charcoal-dark dark:text-silver-light bg-gray-100 text-charcoal-dark">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mt-10 mb-12">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Workflow Automation using Programming -->
-          <div class="flex flex-col items-center mb-10">
-            <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
-            <workflowIcon class="section-icon" />
-            <h3 class="text-2xl font-semibold text-center mb-2">
-              Workflow Automation
-            </h3>
-            <p class="text-center">
-              Leverage the power of automation to streamline repetitive tasks and enhance overall productivity.
-            </p>
-          </div>
-
-          <!-- IT Support -->
-          <div class="flex flex-col items-center mb-10">
-            <!-- <img src="it-support-icon.png" alt="IT Support Icon" class="w-20 h-20 mb-4" /> -->
-            <itConsultingIcon class="section-icon" />
-            <h3 class="text-2xl font-semibold mb-2">IT Support</h3>
-            <p class="text-center">
-              Rely on our experienced team to provide comprehensive IT support
-              for your business.
-            </p>
-          </div>
-
-          <!-- AI Consulting -->
-          <div class="flex flex-col items-center mb-10">
-            <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
-            <aiConsultingIcon class="section-icon" />
-            <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
-            <p class="text-center">
-              Leverage artificial intelligence to drive innovation and unlock
-              new opportunities for your business.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Services />
 
     <!-- How we can help your business -->
     <section id="ai-consulting" class="py-16 dark:bg-indigo-950 bg-gray-100 dark:text-silver-light text-charcoal-dark">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mt-10 mb-12">
+        <h2 class="text-4xl font-bold text-center mt-10">
           Empowering Your Business With AI
         </h2>
-        <h3 class="text-center mt-10 mb-12">
-          Transformative AI Consultancy Services
-        </h3>
-        <p class="text-center mt-10 mb-12">
-          In a world where technology is constantly evolving, your business needs to harness the power of artificial
-          intelligence to stay competitive. But understanding and implementing AI can be complex and challenging. That's
-          where we come in.
-        </p>
+        <div class="grid grid-cols-6 gap-4">
+          <div class="col-start-2 col-span-4">
+            <p class="text-center mt-6 mb-12">
+              In a world where technology is constantly evolving, your business needs to harness the power of artificial
+              intelligence to stay competitive. But understanding and implementing AI can be complex and challenging.
+              That's
+              where we come in.
+            </p>
+          </div>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>Identifying Opportunities</h3>
+            <h3>1. Identifying Opportunities</h3>
             <p class="mb-6">
               We help you pinpoint where AI can add value, from streamlining operations to enhancing customer service or
               even creating new revenue streams.
@@ -92,7 +54,7 @@
           </div>
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>Choosing AI Tools</h3>
+            <h3>2. Choosing AI Tools</h3>
             <p class="mb-6">
               With a myriad of AI technologies available, we guide you in selecting the most suitable tools for your
               unique needs and budget.
@@ -100,7 +62,7 @@
           </div>
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>AI Implementation</h3>
+            <h3>3. AI Implementation</h3>
             <p class="mb-6">
               We assist in integrating AI technologies into your existing systems, tailoring tools to meet your business
               needs, and ensuring a secure, compliant implementation.
@@ -108,7 +70,7 @@
           </div>
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>Employee Training</h3>
+            <h3>4. Employee Training</h3>
             <p class="mb-6">
               We provide comprehensive training, empowering your team to leverage AI tools effectively and harness their
               full potential.
@@ -116,15 +78,16 @@
           </div>
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>Monitoring and Optimisation</h3>
+            <h3>5. Monitoring and Optimisation</h3>
             <p class="mb-6">
-              We don't stop at implementation. We monitor the performance of your AI tools and make necessary adjustments
+              We don't stop at implementation. We monitor the performance of your AI tools and make necessary
+              adjustments
               for optimal effectiveness.
             </p>
           </div>
           <div
             class="flex flex-col dark:bg-text-dark hover:dark:bg-gray-950 hover:bg-red-100 bg-text-light p-10 rounded-lg">
-            <h3>Ongoing Support</h3>
+            <h3>6. Ongoing Support</h3>
             <p class="mb-6">
               Our relationship doesn't end after implementation. We offer ongoing support, ensuring that your AI systems
               continue to operate smoothly and contribute to your business's success.
@@ -247,10 +210,8 @@ import heroImg from '~/assets/images/hero.jpg'
 import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
+import Services from '~/components/home/Services.vue';
 import Contact from '~/components/Contact.vue'
-import workflowIcon from '~/components/icons/workflow.vue'
-import itConsultingIcon from '~/components/icons/itconsulting.vue'
-import aiConsultingIcon from '~/components/icons/aiconsulting.vue'
 
 definePageMeta({
   layout: "landing",
