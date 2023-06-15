@@ -93,8 +93,8 @@ const guides = [
         text: 'Introduction to Midjourney'
     },
     {
-        to: '/guides/introduction-to-do-no-repeat-yourself-dry',
-        text: 'Introduction to Do No Repeat Yourself'
+        to: '/guides/introduction-to-do-not-repeat-yourself-dry',
+        text: 'Introduction to Do Not Repeat Yourself'
     },
     // Add more guide objects as needed
 ]
