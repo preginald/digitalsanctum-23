@@ -7,14 +7,6 @@
                 Ready to Transform Your Business with AI?
             </h2>
             <p class="text-lg mb-12">
-                Thank you for considering our services. We are excited about the prospect of helping you harness the power
-                of artificial intelligence.
-                <br />
-                <br />
-                While we're currently experiencing high demand and focusing on delivering exceptional service to our
-                existing clients, we're looking forward to expanding our capacity from 1st July 2023.
-                <br />
-                <br />
                 To ensure we embark on this exciting journey together without delay, we'd love for you to engage with our
                 <NuxtLink class="underline" to="/research/ai-consulting">AI Discovery Form</NuxtLink>. This innovative tool
                 enables us to proactively understand your unique AI aspirations and get in touch swiftly as our capacity to
