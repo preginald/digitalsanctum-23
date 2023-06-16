@@ -13,7 +13,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- AI Consulting -->
-                <div class="flex flex-col items-center mb-10">
+                <NuxtLink to="/ai-consulting" class="flex flex-col items-center mb-10 p-10 dark:hover:bg-rose-950">
                     <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
                     <aiConsultingIcon class="section-icon" />
                     <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
@@ -23,17 +23,18 @@
                         of automation and IT support to streamline operations, making your business more efficient and
                         competitive.
                     </p>
-                </div>
+                </NuxtLink>
 
                 <!-- Product Development -->
-                <div class="flex flex-col items-center mb-10">
+                <div class="flex flex-col items-center mb-10 p-10 dark:hover:bg-slate-900">
                     <!-- <img src="workflow-automation-icon.png" alt="Workflow Automation Icon" class="w-20 h-20 mb-4" /> -->
                     <workflowIcon class="section-icon" />
                     <h3 class="text-2xl font-semibold text-center mb-2">
                         Product Development
                     </h3>
                     <p class="text-left">
-                        Ignite change with our Product Development service, transforming your visionary ideas into tangible
+                        Ignite change with our Product Development service, transforming your visionary ideas into
+                        tangible
                         products.<br />
                         Our energetic and enthusiastic team collaborates closely with you, building innovative and
                         user-friendly solutions that deliver value and resonate with your target audience.
