@@ -235,7 +235,6 @@ import heroImg from '~/assets/images/hero.jpg'
 import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
-import Services from '~/components/home/Services.vue';
 import Contact from '~/components/Contact.vue'
 
 definePageMeta({
