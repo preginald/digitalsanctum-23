@@ -13,7 +13,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- AI Consulting -->
-                <NuxtLink to="/ai-consulting" class="flex flex-col items-center mb-10 p-10 dark:hover:bg-rose-950">
+                <NuxtLink to="/services/ai-consulting" class="flex flex-col items-center mb-10 p-10 dark:hover:bg-rose-950">
                     <!-- <img src="ai-consulting-icon.png" alt="AI Consulting Icon" class="w-20 h-20 mb-4" /> -->
                     <aiConsultingIcon class="section-icon" />
                     <h3 class="text-2xl font-semibold mb-2">AI Consulting</h3>
