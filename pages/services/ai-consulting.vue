@@ -13,8 +13,8 @@
         <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
           {{ subheadline }}
         </h2>
-        <button @click="scrollToServices" class="btn-primary mt-4">
-          Discover Our Services
+        <button @click="scrollToEmpower" class="btn-primary mt-4">
+          Empower Your Business
         </button>
       </div>
     </section>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- How we can help your business -->
-    <section id="ai-consulting" class="py-16 dark:bg-indigo-950 bg-gray-100 dark:text-silver-light text-charcoal-dark">
+    <section id="how-we-work" class="py-16 dark:bg-indigo-950 bg-gray-100 dark:text-silver-light text-charcoal-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mt-10">
           Empowering Your Business With AI
@@ -95,7 +95,7 @@
     </section>
 
     <!-- Why Choose Digital Sanctum? -->
-    <section class="bg-silver-light py-16 dark:bg-charcoal-dark dark:text-silver-dark">
+    <section id="value-proposition" class="bg-silver-light py-16 dark:bg-charcoal-dark dark:text-silver-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold mt-10 mb-12 text-center">
           Why Choose Digital Sanctum?
@@ -251,10 +251,10 @@ const aiBackgroundImage = computed(() => {
   return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
 });
 
-const scrollToServices = () => {
-  const ourServices = document.querySelector('#our-services');
-  if (ourServices) {
-    ourServices.scrollIntoView({ behavior: 'smooth' });
+const scrollToEmpower = () => {
+  const empower = document.querySelector('#how-we-work');
+  if (empower) {
+    empower.scrollIntoView({ behavior: 'smooth' });
   }
 };
 
