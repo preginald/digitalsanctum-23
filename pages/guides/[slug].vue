@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <div v-if="content" class="container mx-auto px-4 py-8 prose lg:max-w-prose">
+    <main class="container mx-auto px-4 py-8 prose lg:max-w-prose">
+        <div v-if="content">
             <h1>{{ content.title }}</h1>
             <div v-html="content.body">
             </div>
@@ -16,9 +16,11 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
+        <Related />
     </main>
 </template>
 <script setup lang="ts">
+import Related from '~/components/articles/Related.vue';
 const title = ref("")
 const type = "guides"
 const slug = "/api/content/" + type + "/" + useRoute().params.slug
