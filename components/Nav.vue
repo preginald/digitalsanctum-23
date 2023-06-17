@@ -123,6 +123,28 @@ const navigationItems = computed(() => {
             },
             // ... other items for the home route
         ];
+    } else if (route.path === "/services/ai-consulting") {
+        return [
+            {
+                type: "a",
+                href: "#how-we-work",
+                text: "How we work",
+                classes: `${defaultClasses} ${route.hash === "#how-we-work" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "a",
+                href: "#value-proposition",
+                text: "Why Choose Us",
+                classes: `${defaultClasses} ${route.hash === "#value-proposition" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "a",
+                href: "#contact",
+                text: "Contact",
+                classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            // ... other items for the home route
+        ];
     } else if (route.path.includes("/policies")) {
         return [
             {
