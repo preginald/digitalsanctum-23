@@ -1,4 +1,5 @@
 import ContentModel, { IContent } from "~/server/models/Content.model";
+import { useContentStore } from "~/stores/contentStore";
 
 interface IData {
     title: string;
@@ -43,10 +44,11 @@ export async function findContentBySlug(type: string, slug: string): Promise<ICo
     }
 }
 
-export async function findContentByTag(tag: string): Promise<IContent> {
+export async function findContentByTag(excludedId: string, tag: string): Promise<IContent> {
     tag = decodeURIComponent(tag)
     try {
-        const content = await ContentModel.find({ tags: tag }, { title: 1, slug: 1 });
+        const content = await ContentModel.find({ tags: tag, _id: { $ne: excludedId } }, { title: 1, slug: 1 });
+        // const content = await ContentModel.find({ tags: tag }, { title: 1, slug: 1 });
         if (!content) {
             throw createError({
                 message: "Page not found",
