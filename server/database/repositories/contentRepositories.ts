@@ -43,6 +43,23 @@ export async function findContentBySlug(type: string, slug: string): Promise<ICo
     }
 }
 
+export async function findContentByTag(tag: string): Promise<IContent> {
+    tag = decodeURIComponent(tag)
+    try {
+        const content = await ContentModel.find({ tags: tag }, { title: 1, slug: 1 });
+        if (!content) {
+            throw createError({
+                message: "Page not found",
+            });
+        }
+        return content;
+    } catch (e: any) {  // And here
+        throw createError({
+            message: e.message,
+        });
+    }
+}
+
 export async function updateContentBySlug(slug: string, data: Partial<IContent>): Promise<IContent | null> {
     try {
         const content = await ContentModel.findOneAndUpdate({ slug }, data, { new: true });
