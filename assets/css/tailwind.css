@@ -27,11 +27,11 @@ p {
 }
 
 ul {
-  @apply dark:text-gray-300 text-gray-600 mb-3
+  @apply space-y-1 text-gray-500 list-disc list-outside dark:text-gray-400
 }
 
 ol {
-  @apply max-w-md space-y-1 text-gray-500 list-decimal list-outside dark:text-gray-400 mb-3
+  @apply space-y-1 text-gray-500 list-decimal list-outside dark:text-gray-400 mb-3
 }
 
 a {
