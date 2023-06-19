@@ -30,6 +30,10 @@ ul {
   @apply dark:text-gray-300 text-gray-600 mb-3
 }
 
+ol {
+  @apply dark:text-gray-300 text-gray-600 mb-3
+}
+
 a {
   @apply dark:text-blue-200 text-blue-900;
 }
