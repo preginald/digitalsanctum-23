@@ -31,7 +31,7 @@ ul {
 }
 
 ol {
-  @apply dark:text-gray-300 text-gray-600 mb-3
+  @apply max-w-md space-y-1 text-gray-500 list-decimal list-outside dark:text-gray-400 mb-3
 }
 
 a {
@@ -54,4 +54,8 @@ hr {
     .section-icon {
         @apply h-32 w-32 mb-6;
     }
+
+    .bullets {
+      @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400
+    } 
 }
