@@ -69,28 +69,28 @@ const guides = [
         text: 'Leveraging ChatGPT for Unfilled Roles in Small Businesses'
     },
     {
-        to: '/guides/app-success-evaluation-framework',
-        text: 'App Success Evaluation Framework'
+        to: '/guides/how-ai-enhances-customer-experience-personalisation',
+        text: 'How AI Enhances Customer Experience & Personalisation'
     },
     {
-        to: '/guides/introduction-to-gpt',
-        text: 'Introduction to GPT'
+        to: '/guides/ai-revenue-streams',
+        text: 'Developing New Revenue Streams with AI'
     },
     {
-        to: '/guides/introduction-to-privategpt',
-        text: 'Introduction to PrivateGPT'
+        to: '/guides/improving-workforce-skills-ai-driven-training',
+        text: 'Improving Workforce Skills and Capabilities through AI-Driven Training and Development'
     },
     {
-        to: '/guides/introduction-to-prompt-engineering',
-        text: 'Introduction to Prompt Engineering'
+        to: '/guides/optimising-pricing-revenue-strategies-ai-automation',
+        text: 'Optimising Pricing and Revenue Strategies through AI and Automation'
     },
     {
-        to: '/guides/introduction-to-large-language-models-llm',
-        text: 'Introduction to Large Language Models'
+        to: '/guides/unlocking-insights-from-untapped-data',
+        text: 'Unlocking Insights from Untapped Data Sources'
     },
     {
-        to: '/guides/introduction-to-midjourney',
-        text: 'Introduction to Midjourney'
+        to: '/guides/leveraging-ai-social-media-reputation-management',
+        text: 'Leveraging AI for Enhanced Social Media Presence and Online Reputation Management'
     },
     {
         to: '/guides/introduction-to-do-not-repeat-yourself-dry',
