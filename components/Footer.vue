@@ -25,7 +25,7 @@
                 <!-- Policies -->
                 <div class="md:col-span-1 lg:col-span-1">
                     <h5 class="text-sm font-bold mb-4 uppercase">Policies</h5>
-                    <ul class="space-y-2">
+                    <ul class="list-none space-y-2">
                         <li>
                             <NuxtLink to="/policies/privacy" class="text-blue-400 hover:text-blue-300">
                                 Privacy
@@ -45,7 +45,7 @@
                 <!-- Guides -->
                 <div class="md:col-span-2 lg:col-span-2">
                     <h5 class="text-sm font-bold mb-4 uppercase">Guides</h5>
-                    <ul class="space-y-2">
+                    <ul class="list-none space-y-2">
                         <li v-for="(guide, index) in guides" :key="index">
                             <NuxtLink :to="guide.to" class="text-blue-400 hover:text-blue-300">
                                 {{ guide.text }}
