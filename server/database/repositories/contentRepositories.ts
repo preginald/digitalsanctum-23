@@ -1,5 +1,4 @@
 import ContentModel, { IContent } from "~/server/models/Content.model";
-import { useContentStore } from "~/stores/contentStore";
 
 interface IData {
     title: string;
