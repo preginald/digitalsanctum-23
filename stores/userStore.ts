@@ -268,6 +268,11 @@ export const useUserStore = defineStore("UserStore", {
                 }
             )
             return response
+        },
+
+        isAdmin() {
+            return this.user.email == 'peter@digitalsanctum.com.au'
         }
+
     }
 })
