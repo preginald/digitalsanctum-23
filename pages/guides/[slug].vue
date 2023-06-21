@@ -3,7 +3,6 @@
         <button class="btn-primary">Edit</button>
     </div>
     <main class="container mx-auto px-4 pb-8 prose lg:max-w-prose">
-        <!-- <div v-if="userStore.session && userStore.isAdmin()"> -->
         <Read />
         <Related />
     </main>
