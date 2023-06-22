@@ -8,6 +8,12 @@ export const useContentStore = defineStore("ContentStore", {
         }
     },
     actions: {
+        async createContent(data: {}): Promise<void> {
+            await $fetch("/api/content/create", {
+                method: "POST",
+                body: data,
+            });
+        },
         async getContentBySlug(slug: string, tag: string) {
             // console.log("slug:", slug, "tag", tag)
             this.content = await $fetch(slug)
