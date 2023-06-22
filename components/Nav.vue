@@ -31,9 +31,10 @@
                 <ul :class="navClasses">
                     <li>
                         <NuxtLink to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded md:p-0 dark:text-white" :class="{
-                            'hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-blue-300 md:dark:hover:bg-transparent': route.path.startsWith('/policies'),
-                            'text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500': !route.path.startsWith('/policies')
-                        }" :aria-current="route.path.startsWith('/policies') ? undefined : 'page'">
+                            'hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-blue-300 md:dark:hover:bg-transparent': route.path.startsWith('/guides') || route.path.startsWith('/policies'),
+                            'text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500': !(route.path.startsWith('/guides') || route.path.startsWith('/policies'))
+                        }"
+                            :aria-current="route.path.startsWith('/guides') || route.path.startsWith('/policies') ? undefined : 'page'">
                             Home
                         </NuxtLink>
                     </li>
@@ -121,6 +122,12 @@ const navigationItems = computed(() => {
                 text: "Contact",
                 classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
             },
+            {
+                type: "NuxtLink",
+                to: "/guides",
+                text: "Guides",
+                classes: `${defaultClasses} ${route.hash === "guides" ? activeClassName : ""} ${hoverClasses}`,
+            },
             // ... other items for the home route
         ];
     } else if (route.path === "/services/ai-consulting") {
@@ -142,6 +149,16 @@ const navigationItems = computed(() => {
                 href: "#contact",
                 text: "Contact",
                 classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            // ... other items for the home route
+        ];
+    } else if (route.path.startsWith("/guides")) {
+        return [
+            {
+                type: "NuxtLink",
+                to: "/guides",
+                text: "Guides",
+                classes: `${defaultClasses} ${route.hash === "guides" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the home route
         ];
