@@ -50,11 +50,11 @@ import { useContentStore } from '~/stores/contentStore';
 const contentStore = useContentStore()
 const newTag = ref('')
 const addTag = () => {
-    contentStore.content.tags.value.push(newTag.value)
+    contentStore.content.tags.push(newTag.value)
     newTag.value = ''
 }
 const removeTag = (index: number) => {
-    contentStore.content.tags.value.splice(index, 1)
+    contentStore.content.tags.splice(index, 1)
 }
 useHead({
     title: contentStore.content.title
