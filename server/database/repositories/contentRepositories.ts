@@ -43,6 +43,22 @@ export async function findContentBySlug(type: string, slug: string): Promise<ICo
     }
 }
 
+export async function findContents(): Promise<IContent> {
+    try {
+        const contents = await ContentModel.find({ type: "guides" }, { title: 1, tags: 1, slug: 1 })
+        if (!contents) {
+            throw createError({
+                message: "Page not found",
+            });
+        }
+        return contents;
+    } catch (e: any) {  // And here
+        throw createError({
+            message: e.message,
+        });
+    }
+}
+
 export async function findContentByTag(excludedId: string, tag: string): Promise<IContent> {
     tag = decodeURIComponent(tag)
     try {

@@ -4,6 +4,7 @@ export const useContentStore = defineStore("ContentStore", {
     state: () => {
         return {
             content: {},
+            contents: [],
             related: []
         }
     },
@@ -20,6 +21,9 @@ export const useContentStore = defineStore("ContentStore", {
             if (this.content._id) {
                 this.related = await $fetch('/api/content/related/' + this.content._id + '/' + tag)
             }
+        },
+        async getContents() {
+            this.contents = await $fetch('/api/content')
         }
     }
 })
