@@ -19,7 +19,7 @@ h3 {
 }
 
 h4 {
-  @apply font-bold leading-tight text-lg mb-5 text-gray-800 dark:text-gray-300;
+  @apply font-bold leading-tight mb-5 text-gray-800 dark:text-gray-300;
 }
 
 p {
