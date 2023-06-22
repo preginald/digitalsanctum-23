@@ -44,7 +44,7 @@
 
                 <!-- Guides -->
                 <div class="md:col-span-2 lg:col-span-2">
-                    <h5 class="text-sm font-bold mb-4 uppercase">Guides</h5>
+                    <NuxtLink to="/guides" class="text-sm font-bold mb-4 uppercase">Guides</NuxtLink>
                     <ul class="list-none space-y-2">
                         <li v-for="(guide, index) in guides" :key="index">
                             <NuxtLink :to="guide.to" class="text-blue-400 hover:text-blue-300">
