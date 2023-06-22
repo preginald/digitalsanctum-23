@@ -3,7 +3,6 @@
         <button @click="toggleMode()" class="btn-primary">{{ mode === 'edit' ? 'Cancel' : 'Edit' }}</button>
         <button v-if="mode === 'edit'" @click="updateContent()" class="btn-primary">Update</button>
     </div>
-    {{ contentStore.content._id }}
     <main class="container mx-auto px-4 pb-8">
         <Edit v-if="mode == 'edit'" />
     </main>
