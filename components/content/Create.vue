@@ -31,6 +31,11 @@
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Write your thoughts here..." v-model="title"></textarea>
             </div>
+            <div>
+                <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
+                <input type="text" v-model="slug" id="slug" placeholder="Add a slug"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            </div>
             <div class="my-5">
                 <label for="description"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -71,6 +76,7 @@ const title = ref("")
 const description = ref("")
 const body = ref("")
 const tags = ref([])
+const slug = ref("")
 const newTag = ref('')
 const addTag = () => {
     tags.value.push(newTag.value)
@@ -85,9 +91,11 @@ const contentTypes = [
     { value: 'about', text: 'About' },
 ]
 
+const slugFromTitle = () => {
+    return title.value.trim().toLowerCase().replace(/ /g, '-');
+}
+
 const saveContent = async () => {
-    // Create a slug from the title
-    const slug = title.value.trim().toLowerCase().replace(/ /g, '-');
 
     // Prepare the data object
     const data = {
@@ -96,7 +104,7 @@ const saveContent = async () => {
         description: description.value,
         body: body.value,
         tags: tags.value,
-        slug: slug
+        slug: slug.value == '' ? slugFromTitle() : slug.value,
     };
 
     try {
