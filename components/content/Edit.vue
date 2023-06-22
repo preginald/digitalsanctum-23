@@ -48,7 +48,6 @@
 <script setup lang="ts">
 import { useContentStore } from '~/stores/contentStore';
 const contentStore = useContentStore()
-const body = ref(contentStore.content.body)
 const newTag = ref('')
 const addTag = () => {
     contentStore.content.tags.value.push(newTag.value)
