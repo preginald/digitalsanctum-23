@@ -86,3 +86,19 @@ export async function updateContentBySlug(slug: string, data: Partial<IContent>)
         throw new Error("Failed to update page by slug");
     }
 }
+
+export async function updateContentById(id: string, data: Partial<IContent>): Promise<IContent | null> {
+    try {
+        const content = await ContentModel.findByIdAndUpdate(id, data, { new: true });
+        if (!content) {
+            throw createError({
+                message: "Content not found",
+            });
+        }
+        return content;
+    } catch (e: any) {
+        throw createError({
+            message: e.message,
+        });
+    }
+}

@@ -1,7 +1,9 @@
 <template>
     <div v-if="userStore.isAdmin()" class="mx-auto px-4 prose lg:max-w-prose">
-        <button @click="toggleMode()" class="btn-primary">Edit</button>
+        <button @click="toggleMode()" class="btn-primary">{{ mode === 'edit' ? 'Cancel' : 'Edit' }}</button>
+        <button v-if="mode === 'edit'" @click="updateContent()" class="btn-primary">Update</button>
     </div>
+    {{ contentStore.content._id }}
     <main class="container mx-auto px-4 pb-8">
         <Edit v-if="mode == 'edit'" />
     </main>
@@ -31,6 +33,10 @@ const mode = ref("read")
 
 const toggleMode = () => {
     mode.value = mode.value == "read" ? "edit" : "read"
+}
+
+const updateContent = async () => {
+    contentStore.updateContent()
 }
 
 useHead({

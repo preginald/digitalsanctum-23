@@ -24,6 +24,14 @@ export const useContentStore = defineStore("ContentStore", {
         },
         async getContents() {
             this.contents = await $fetch('/api/content')
+        },
+        async updateContent() {
+            if (this.content._id) {
+                await $fetch(`/api/content/update/${this.content._id}`, {
+                    method: "PUT",
+                    body: this.content,
+                });
+            }
         }
     }
 })
