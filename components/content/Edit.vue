@@ -57,10 +57,6 @@ const addTag = () => {
 const removeTag = (index: number) => {
     contentStore.content.tags.value.splice(index, 1)
 }
-const calculateRows = () => {
-    const lines = body.split('\n').length;
-    return Math.min(lines + 1, 100); // Set a maximum of 100 rows
-}
 useHead({
     title: contentStore.content.title
 })
