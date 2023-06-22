@@ -45,7 +45,7 @@ export async function findContentBySlug(type: string, slug: string): Promise<ICo
 
 export async function findContents(): Promise<IContent> {
     try {
-        const contents = await ContentModel.find({ type: "guides" }, { title: 1, tags: 1, slug: 1 })
+        const contents = await ContentModel.find({ type: "guides" }, { title: 1, tags: 1, slug: 1, description: 1 })
         if (!contents) {
             throw createError({
                 message: "Page not found",

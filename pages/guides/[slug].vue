@@ -3,10 +3,10 @@
         <button @click="toggleMode()" class="btn-primary">{{ mode === 'edit' ? 'Cancel' : 'Edit' }}</button>
         <button v-if="mode === 'edit'" @click="updateContent()" class="btn-primary">Update</button>
     </div>
-    <main class="container mx-auto px-4 pb-8">
+    <main class="py-3 px-4 mx-auto max-w-screen-md">
         <Edit v-if="mode == 'edit'" />
     </main>
-    <main class="container mx-auto px-4 pb-8 prose lg:max-w-prose">
+    <main class="py-3 px-4 mx-auto max-w-screen-md">
         <Read v-if="mode == 'read'" />
         <Related />
     </main>
