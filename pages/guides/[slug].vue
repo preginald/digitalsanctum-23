@@ -3,13 +3,9 @@
         <button @click="toggleMode()" class="btn-primary">{{ mode === 'edit' ? 'Cancel' : 'Edit' }}</button>
         <button v-if="mode === 'edit'" @click="updateContent()" class="btn-primary">Update</button>
     </div>
-    <main class="py-3 px-4 mx-auto max-w-screen-md">
-        <Edit v-if="mode == 'edit'" />
-    </main>
-    <main class="py-3 px-4 mx-auto max-w-screen-md">
-        <Read v-if="mode == 'read'" />
-        <Related />
-    </main>
+    <Edit v-if="mode == 'edit'" />
+    <Read v-if="mode == 'read'" />
+    <Related />
 </template>
 <script setup lang="ts">
 import Read from '~/components/content/Read.vue'
@@ -21,7 +17,8 @@ const userStore = useUserStore()
 import { useContentStore } from '~/stores/contentStore';
 
 definePageMeta({
-    middleware: ["token"]
+    middleware: ["token"],
+    layout: "guides",
 })
 
 const contentStore = useContentStore()
