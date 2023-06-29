@@ -16,8 +16,8 @@
             </h2>
             <button type="button" class="btn-primary-lg mt-4 inline-flex">
                 {{ hero.cta.text }}
-                <svg class="w-6 h-6 ml-3 mt-1 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 10 15">
+                <svg class="w-6 h-6 ml-2 pt-1 text-white svg-animate" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 10 15">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m1 7 4 4 4-4M1 1l4 4 4-4" />
                 </svg>
@@ -81,5 +81,28 @@ function scrollToSection(to: string) {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.svg-animate {
+    animation: bounce 1s infinite;
 }
 </style>
