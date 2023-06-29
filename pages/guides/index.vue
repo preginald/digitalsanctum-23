@@ -1,5 +1,5 @@
 <template>
-    <SectionsHero :hero="content" top="100" />
+    <SectionsHero :hero="content" :top="100" />
     <main id="main" class="px-4 my-10 mx-auto max-w-screen-md">
         <h1 class="pl-5">Guides</h1>
         <NuxtLink v-if="contentStore.contents.length" :to="'/guides/' + content.slug"
