@@ -1,30 +1,32 @@
 <template>
   <div>
-    <!-- Hero Section -->
-    <section ref="heroSection"
-      class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
-      :style="{ backgroundImage: heroBackgroundImage }">
-      <div class="container mx-auto px-4 sm:max-w-screen-lg">
-        <h1
-          class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-sky-400">{{ headline }}
-          </span> {{ withOrAnd }}
-        </h1>
-        <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
-          {{ subheadline }}
-        </h2>
-        <button @click="scrollToEmpower" class="btn-primary mt-4">
-          Empower Your Business
-        </button>
-      </div>
-    </section>
+    <SectionsHero :hero="heroData" />
 
     <!-- Header and Navigation -->
     <div ref="navbar" class="navbar">
       <Nav />
     </div>
 
-    <!-- How we can help your business -->
+    <!-- AI Readiness Assessment -->
+    <section id="ai-readiness-assessment"
+      class="py-16 dark:bg-indigo-950 bg-gray-100 dark:text-silver-light text-charcoal-dark">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mt-10">
+          Let's start with an AI Readiness Assessment
+        </h2>
+        <div class="grid grid-cols-6 gap-4 text-center">
+          <div class="col-start-2 col-span-4">
+            <p class="mt-6 mb-12">
+              Understanding where you stand is the first step to harnessing the power of AI. We evaluate your existing
+              infrastructure, data, and business processes to identify potential areas for AI integration.
+            </p>
+            <NuxtLink to="ai-readiness-assessment" class="btn-primary-lg">What is an AI Readiness Assessment</NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we work -->
     <section id="how-we-work" class="py-16 dark:bg-indigo-950 bg-gray-100 dark:text-silver-light text-charcoal-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mt-10">
@@ -231,8 +233,8 @@
 
 <script setup lang="ts">
 import { useSiteStore } from '~~/stores/siteStore';
-import heroImg from '~/assets/images/hero.jpg'
-import heroImgLight from '~/assets/images/hero-light-v1-0.jpg'
+import heroImg from '~/assets/images/services-ai-consulting-dark.jpg'
+import heroImgLight from '~/assets/images/services-ai-consulting-light.jpg'
 import aiImg from '~/assets/images/ai-consulting-light-01.jpg'
 import aiImgDark from '~/assets/images/ai-consulting-dark-01.jpg'
 import Contact from '~/components/Contact.vue'
@@ -243,20 +245,17 @@ definePageMeta({
 
 const siteStore = useSiteStore()
 
-const heroBackgroundImage = computed(() => {
-  return `url(${siteStore.theme === 'light' ? heroImgLight : heroImg})`;
-});
+const heroData = {
+  heading: "AI Consulting Services",
+  subHeading: "Empowering Your Business with Tailored AI Solutions",
+  img: { dark: heroImg, light: heroImgLight },
+  cta: { text: "It starts with...", to: "#ai-readiness-assessment" }
+}
 
 const aiBackgroundImage = computed(() => {
   return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
 });
 
-const scrollToEmpower = () => {
-  const empower = document.querySelector('#how-we-work');
-  if (empower) {
-    empower.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 const navbar = ref(null);
 let isNavSticky = false;
@@ -284,12 +283,6 @@ onMounted(() => {
   siteStore.setTheme(savedTheme ? savedTheme : 'dark');
 
   window.addEventListener('scroll', handleScroll);
-
-  let randomIndex = Math.floor(Math.random() * heroText.length);
-  headline.value = heroText[randomIndex].headline;
-  subheadline.value = heroText[randomIndex].subheadline;
-  withOrAnd.value = heroText[randomIndex].withOrAnd;
-
 });
 
 onBeforeUnmount(() => {
@@ -298,64 +291,6 @@ onBeforeUnmount(() => {
 });
 
 const theme = siteStore.theme;
-
-let headline = ref('');
-let subheadline = ref('');
-let withOrAnd = ref('');
-
-const heroText = [
-  {
-    headline: "Transforming Your Business with AI Prowess",
-    subheadline: "Enhancing your operational efficacy, cultivating innovation, and unlocking growth with our tech-savvy, forward-thinking solutions.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Unleashing Your Business Potential with AI",
-    subheadline: "Take your business on a journey of transformation, energised by the power of artificial intelligence and automation.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Spearheading Your Business Evolution with AI",
-    subheadline: "Let's navigate the future together, with our passionate, user-friendly approach to AI and automation.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Empowering Your Business Progress with AI",
-    subheadline: "Integrating cutting-edge technology and simple language to deliver value-driven AI solutions for your business.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Your Business: Supercharged by AI Innovation",
-    subheadline: "Blending technical expertise and simplicity to turbocharge your business growth and efficiency.",
-    withOrAnd: "with Digital Sanctum"
-  },
-  {
-    headline: "Elevating Your Business with AI, Automation",
-    subheadline: "Harnessing the power of advanced technology to inspire your business growth, foster innovation, and streamline processes.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Trailblazing Your Business Growth with AI",
-    subheadline: "Bridging the gap between technology and growth with our engaging, effective, and efficient AI and automation solutions.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Driving Your Business Breakthroughs with AI",
-    subheadline: "Reimagine your business potential through the lens of artificial intelligence, fostering a new era of efficiency and innovation.",
-    withOrAnd: "and Digital Sanctum"
-  },
-  {
-    headline: "Leading Your Business into the AI Revolution",
-    subheadline: "Transform your enterprise by integrating intelligent automation, inspiring efficiency, and enabling unprecedented growth.",
-    withOrAnd: "with Digital Sanctum"
-  },
-  {
-    headline: "AI: The Helm of Your Business Evolution",
-    subheadline: "With our energetic approach, we're turning the tides of traditional business practices, driving value, and creating a future brimming with opportunities for your business.",
-    withOrAnd: "with Digital Sanctum"
-  }
-];
-
 
 </script>
 
