@@ -1,6 +1,6 @@
 <template>
     <section ref="heroSection"
-        class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
+        class="hero-section p-10 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
         :style="{ backgroundImage: backgroundImage }">
         <div @click="scrollToSection(hero.cta.to)"
             class="container p-10 mx-auto px-8 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg dark:bg-black/60  hover:dark:bg-black/80  bg-white/60  hover:bg-white/80 hover:cursor-pointer rounded-lg">
@@ -58,15 +58,25 @@ onUnmounted(() => {
 });
 
 const handleScroll = () => {
-    const offset = window.pageYOffset;
-    scrollPosition = offset * -0.8; // Change 0.5 to control the speed of the parallax
-    heroSection.value.style.backgroundPosition = `center ${scrollPosition}px`;
+    const offset = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    // Only start parallax effect after scrolling past y% of the viewport height
+    const minHeight = 0.05
+    if (offset > viewportHeight * minHeight) {
+        // Use a square function to create a curve effect
+        scrollPosition = Math.pow(offset - viewportHeight * minHeight, 2) * -0.0005; // Change 0.001 to control the speed of the parallax
+        heroSection.value.style.backgroundPosition = `center ${scrollPosition}px`;
+    } else {
+        // Reset the background position when scrolling back to the top
+        heroSection.value.style.backgroundPosition = `center bottom`;
+    }
 };
 
 function scrollToSection(to: string) {
     const scrollTo: any = document.querySelector(to);
     const rect = scrollTo.getBoundingClientRect();
-    const absoluteTop = window.pageYOffset + rect.top;
+    const absoluteTop = window.scrollY + rect.top;
     window.scrollTo({
         top: absoluteTop - props.top, // subtract 50px to move 50px above
         behavior: 'smooth'
