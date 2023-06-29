@@ -5,13 +5,13 @@
         <div @click="scrollToSection(hero.cta.to)"
             class="container p-10 mx-auto px-8 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg dark:bg-black/60  hover:dark:bg-black/80  bg-white/60  hover:bg-white/80 hover:cursor-pointer rounded-lg">
             <h1
-                class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 <span
                     class="text-transparent bg-clip-text bg-gradient-to-r dark:to-orange-600 dark:from-orange-400  to-blue-900 from-blue-600">{{
                         hero.heading
                     }}</span>
             </h1>
-            <h2 class="text-2xl mt-4 text-charcoal-dark dark:text-silver-light">
+            <h2 class="text-xl md:text-2xl mt-4 text-charcoal-dark dark:text-silver-light">
                 {{ hero.subHeading }}
             </h2>
             <button type="button" class="btn-primary-lg mt-4 inline-flex">
