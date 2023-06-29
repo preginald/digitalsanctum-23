@@ -14,8 +14,13 @@
             <h2 class="text-2xl mt-4 text-charcoal-dark dark:text-silver-light">
                 {{ hero.subHeading }}
             </h2>
-            <button class="btn-primary-lg mt-4">
+            <button type="button" class="btn-primary-lg mt-4 inline-flex">
                 {{ hero.cta.text }}
+                <svg class="w-6 h-6 ml-3 mt-1 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 10 15">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 7 4 4 4-4M1 1l4 4 4-4" />
+                </svg>
             </button>
         </div>
     </section>
@@ -59,7 +64,6 @@ const handleScroll = () => {
 };
 
 function scrollToSection(to: string) {
-    console.log(props.top)
     const scrollTo: any = document.querySelector(to);
     const rect = scrollTo.getBoundingClientRect();
     const absoluteTop = window.pageYOffset + rect.top;
@@ -76,7 +80,6 @@ function scrollToSection(to: string) {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* New addition */
     min-height: 100vh;
 }
 </style>
