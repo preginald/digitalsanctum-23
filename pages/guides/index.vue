@@ -1,5 +1,6 @@
 <template>
-    <main class="px-4 my-10 mx-auto max-w-screen-md">
+    <SectionsHero :hero="content" top="100" />
+    <main id="main" class="px-4 my-10 mx-auto max-w-screen-md">
         <h1 class="pl-5">Guides</h1>
         <NuxtLink v-if="contentStore.contents.length" :to="'/guides/' + content.slug"
             v-for="content in contentStore.contents">
@@ -18,6 +19,16 @@
 definePageMeta({
     layout: "guides",
 })
+
+import heroImg from '~/assets/images/guides-dark.jpg'
+
+const content = {
+    heading: "Guides to Understanding and Implementing AI",
+    subHeading: "Explore our comprehensive collection of AI guides at Digital Sanctum. Understand AI basics, discover how to enhance customer experience, develop new revenue streams, improve workforce skills, and much more. Ideal for both novices and experts in the AI field, our guides are designed to help you leverage AI and automation technologies for business growth and innovation.",
+    img: { dark: heroImg, light: heroImg },
+    cta: { text: "Start reading", to: "#main" }
+}
+
 
 import { useContentStore } from '~/stores/contentStore.ts'
 const contentStore = useContentStore()
