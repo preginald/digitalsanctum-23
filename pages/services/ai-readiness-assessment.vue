@@ -6,11 +6,12 @@
 </template>
 <script setup lang="ts">
 import heroImg from '~/assets/images/services-ai-consulting-dark.jpg'
+import heroImgLight from '~/assets/images/services-ai-consulting-light.jpg'
 
 const heroData = {
     heading: "What is an AI Readiness Assessment?",
     subHeading: "An AI Readiness Assessment is the first step on your journey to harnessing the power of artificial intelligence (AI) in your business. It's about understanding where your business stands today, and identifying the opportunities where AI can make the biggest impact.",
-    img: { dark: heroImg },
+    img: { dark: heroImg, light: heroImgLight },
     cta: { text: "Why do you need an AI Readiness Assessment?", to: "#testing" }
 }
 
