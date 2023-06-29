@@ -133,20 +133,9 @@ definePageMeta({
 
 const siteStore = useSiteStore()
 
-const heroBackgroundImage = computed(() => {
-  return `url(${siteStore.theme === 'light' ? heroImgLight : heroImg})`;
-});
-
 const aiBackgroundImage = computed(() => {
   return `url(${siteStore.theme === 'light' ? aiImg : aiImgDark})`;
 });
-
-const scrollToServices = () => {
-  const ourServices = document.querySelector('#our-services');
-  if (ourServices) {
-    ourServices.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 const navbar = ref(null);
 let isNavSticky = false;
@@ -154,7 +143,7 @@ let isNavSticky = false;
 const content = ref({
   heading: "Transforming Your Business with AI Prowess",
   subHeading: "Enhancing your operational efficacy, cultivating innovation, and unlocking growth with our tech-savvy, forward-thinking solutions.",
-  img: { dark: heroImg, light: heroImg },
+  img: { dark: heroImg, light: heroImgLight },
   cta: { text: "Empower your business", to: "#our-services" }
 })
 
@@ -186,9 +175,6 @@ onMounted(() => {
 
   content.value.heading = heroText[randomIndex].headline;
   content.value.subHeading = heroText[randomIndex].subheadline;
-  withOrAnd.value = heroText[randomIndex].withOrAnd;
-
-
 });
 
 onBeforeUnmount(() => {
@@ -197,8 +183,6 @@ onBeforeUnmount(() => {
 });
 
 const theme = siteStore.theme;
-
-let withOrAnd = ref('');
 
 const heroText = [
   {
