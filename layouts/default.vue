@@ -65,7 +65,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .main-content {
-    padding-top: 4rem;
+    /* padding-top: 4rem; */
 }
 
 .router-link-exact-active {
