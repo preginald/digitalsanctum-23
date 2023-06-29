@@ -2,9 +2,8 @@
     <section ref="heroSection"
         class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
         :style="{ backgroundImage: backgroundImage }">
-        <div
-            class="container p-10 mx-auto px-8 sm:max-w-screen-md dark:bg-black/60  hover:dark:bg-black/80  bg-white/60  hover:bg-white/80 rounded-lg">
-            <!-- <div class="p-10 mx-auto  dark:bg-black/50 rounded-lg"> -->
+        <div @click="scrollToSection(hero.cta.to)"
+            class="container p-10 mx-auto px-8 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg dark:bg-black/60  hover:dark:bg-black/80  bg-white/60  hover:bg-white/80 hover:cursor-pointer rounded-lg">
             <h1
                 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 <span
@@ -15,7 +14,7 @@
             <h2 class="text-2xl mt-4 text-charcoal-dark dark:text-silver-light">
                 {{ hero.subHeading }}
             </h2>
-            <button @click="scrollToSection(hero.cta.to)" class="btn-primary-lg mt-4">
+            <button class="btn-primary-lg mt-4">
                 {{ hero.cta.text }}
             </button>
         </div>
@@ -31,15 +30,43 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    top: {
+        type: Number,
+        required: true,
+    },
 });
 
 const backgroundImage = computed(() => {
-    return `url(${siteStore.theme === 'light' ? props.hero.img.light : props.hero.img.dark})`;
+    if (props.hero.img)
+        return `url(${siteStore.theme === 'light' ? props.hero.img.light : props.hero.img.dark})`;
 });
 
+const heroSection = ref(null);
+let scrollPosition = 0;
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
+
+const handleScroll = () => {
+    const offset = window.pageYOffset;
+    scrollPosition = offset * -0.8; // Change 0.5 to control the speed of the parallax
+    heroSection.value.style.backgroundPosition = `center ${scrollPosition}px`;
+};
+
 function scrollToSection(to: string) {
+    console.log(props.top)
     const scrollTo: any = document.querySelector(to);
-    scrollTo.scrollIntoView({ behavior: 'smooth' });
+    const rect = scrollTo.getBoundingClientRect();
+    const absoluteTop = window.pageYOffset + rect.top;
+    window.scrollTo({
+        top: absoluteTop - props.top, // subtract 50px to move 50px above
+        behavior: 'smooth'
+    });
 }
 </script>
 
@@ -48,6 +75,8 @@ function scrollToSection(to: string) {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* New addition */
     min-height: 100vh;
 }
 </style>
