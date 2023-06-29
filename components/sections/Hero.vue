@@ -104,7 +104,7 @@ function scrollToSection(to: string) {
     }
 
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 
     60% {
@@ -113,6 +113,6 @@ function scrollToSection(to: string) {
 }
 
 .svg-animate {
-    animation: bounce 1s infinite;
+    animation: bounce 2s infinite;
 }
 </style>
