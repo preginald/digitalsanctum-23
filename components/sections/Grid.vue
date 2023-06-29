@@ -6,10 +6,10 @@
       </h2>
       <div class="grid grid-cols-6 gap-4">
         <div class="col-start-2 col-span-4">
-          <p class="text-center mt-6 mb-12">
+          <p class="text-center mt-6 mb-12 text-lg md:text-xl">
             {{ section.intro }}
           </p>
-          <h3 class="text-center my-6">{{ section.subHeading }}</h3>
+          <h3 class="text-center my-6 font-bold">{{ section.subHeading }}</h3>
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
