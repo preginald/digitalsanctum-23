@@ -23,23 +23,6 @@
                             {{ item.text }}
                         </NuxtLink>
                     </li>
-                    <!-- <li>
-                        <NuxtLink to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded md:p-0 dark:text-white" :class="{
-                            'hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-blue-300 md:dark:hover:bg-transparent': route.path.startsWith('/guides') || route.path.startsWith('/policies'),
-                            'text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500': !(route.path.startsWith('/guides') || route.path.startsWith('/policies'))
-                        }"
-                            :aria-current="route.path.startsWith('/guides') || route.path.startsWith('/policies') ? undefined : 'page'">
-                            Home
-                        </NuxtLink>
-                    </li>
-                    <li v-for="(navItem, index) in navigationItems" :key="index">
-                        <a v-if="navItem.type === 'a'" :href="navItem.href" :class="itemClass(navItem)" aria-current="page">
-                            {{ navItem.text }}
-                        </a>
-                        <NuxtLink v-else :to="navItem.to" :class="itemClass(navItem)">
-                            {{ navItem.text }}
-                        </NuxtLink>
-                    </li> -->
                     <li>
                         <button class="dark:text-white" v-if="userStore.session" @click="signOut()">Sign out</button>
                     </li>
@@ -94,7 +77,7 @@ const navClasses =
 const navigationItems = computed(() => {
     const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0";
     const activeClassName = "text-electric-blue-dark dark:text-electric-blue-light";
-    const hoverClasses = "dark:hover:text-blue-900 hover:text-blue-900 md:hover:bg-transparent";
+    const hoverClasses = "dark:hover:text-blue-900 dark:hover:text-vibrant-red-light  md:hover:bg-transparent";
 
     if (route.path === "/") {
         return [
