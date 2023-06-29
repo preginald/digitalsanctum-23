@@ -152,8 +152,8 @@ const navbar = ref(null);
 let isNavSticky = false;
 
 const content = ref({
-  heading: "",
-  subHeading: "",
+  heading: "Transforming Your Business with AI Prowess",
+  subHeading: "Enhancing your operational efficacy, cultivating innovation, and unlocking growth with our tech-savvy, forward-thinking solutions.",
   img: { dark: heroImg, light: heroImg },
   cta: { text: "Empower your business", to: "#our-services" }
 })
@@ -198,55 +198,44 @@ onBeforeUnmount(() => {
 
 const theme = siteStore.theme;
 
-let headline = ref('');
-let subheadline = ref('');
 let withOrAnd = ref('');
 
 const heroText = [
   {
     headline: "Transforming Your Business with AI Prowess",
     subheadline: "Enhancing your operational efficacy, cultivating innovation, and unlocking growth with our tech-savvy, forward-thinking solutions.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Unleashing Your Business Potential with AI",
     subheadline: "Take your business on a journey of transformation, energised by the power of artificial intelligence and automation.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Spearheading Your Business Evolution with AI",
     subheadline: "Let's navigate the future together, with our passionate, user-friendly approach to AI and automation.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Empowering Your Business Progress with AI",
     subheadline: "Integrating cutting-edge technology and simple language to deliver value-driven AI solutions for your business.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Your Business: Supercharged by AI Innovation",
     subheadline: "Blending technical expertise and simplicity to turbocharge your business growth and efficiency.",
-    withOrAnd: "with Digital Sanctum"
   },
   {
     headline: "Elevating Your Business with AI, Automation",
     subheadline: "Harnessing the power of advanced technology to inspire your business growth, foster innovation, and streamline processes.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Trailblazing Your Business Growth with AI",
     subheadline: "Bridging the gap between technology and growth with our engaging, effective, and efficient AI and automation solutions.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Driving Your Business Breakthroughs with AI",
     subheadline: "Reimagine your business potential through the lens of artificial intelligence, fostering a new era of efficiency and innovation.",
-    withOrAnd: "and Digital Sanctum"
   },
   {
     headline: "Leading Your Business into the AI Revolution",
     subheadline: "Transform your business by integrating intelligent automation, inspiring efficiency, and enabling unprecedented growth.",
-    withOrAnd: "with Digital Sanctum"
   },
 ];
 
