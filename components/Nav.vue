@@ -92,7 +92,7 @@ const navClasses =
     "list-none space-y-0 font-medium flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 mb-0 mr-5";
 
 const navigationItems = computed(() => {
-    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-light rounded md:p-0";
+    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0";
     const activeClassName = "text-electric-blue-dark dark:text-electric-blue-light";
     const hoverClasses = "dark:hover:text-blue-900 hover:text-blue-900 md:hover:bg-transparent";
 
