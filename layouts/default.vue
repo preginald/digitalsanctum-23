@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Header and Navigation -->
-        <Nav />
+        <Nav class="sticky top-0 z-50" />
 
         <!-- Page Content -->
         <main class="main-content">
