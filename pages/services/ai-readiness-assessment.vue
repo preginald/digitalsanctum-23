@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SectionsHero :hero="heroData" top="60" />
+        <SectionsHero :hero="heroData" :top="60" />
         <SectionsGrid :section="sectionData" :sectionItems="assessmentKeyAreas" id="testing" />
     </div>
 </template>
