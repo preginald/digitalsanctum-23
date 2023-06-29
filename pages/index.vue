@@ -7,15 +7,14 @@
       <div class="container mx-auto px-4 sm:max-w-screen-lg">
         <h1
           class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-sky-400">Transform Your Business
-          </span>with Digital Sanctum
+          <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-sky-400">{{ headline }}
+          </span> {{ withOrAnd }}
         </h1>
         <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
-          Unlock your business's full potential through expert IT solutions
-          and innovation.
+          {{ subheadline }}
         </h2>
-        <button @click="scrollToServices" class="btn-primary mt-4">
-          Discover Our Services
+        <button @click="scrollToEmpower" class="btn-primary mt-4">
+          Empower Your Business
         </button>
       </div>
     </section>
@@ -192,6 +191,12 @@ onMounted(() => {
 
   window.addEventListener('scroll', handleScroll);
 
+  let randomIndex = Math.floor(Math.random() * heroText.length);
+  headline.value = heroText[randomIndex].headline;
+  subheadline.value = heroText[randomIndex].subheadline;
+  withOrAnd.value = heroText[randomIndex].withOrAnd;
+
+
 });
 
 onBeforeUnmount(() => {
@@ -200,6 +205,60 @@ onBeforeUnmount(() => {
 });
 
 const theme = siteStore.theme;
+
+let headline = ref('');
+let subheadline = ref('');
+let withOrAnd = ref('');
+
+const heroText = [
+  {
+    headline: "Transforming Your Business with AI Prowess",
+    subheadline: "Enhancing your operational efficacy, cultivating innovation, and unlocking growth with our tech-savvy, forward-thinking solutions.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Unleashing Your Business Potential with AI",
+    subheadline: "Take your business on a journey of transformation, energised by the power of artificial intelligence and automation.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Spearheading Your Business Evolution with AI",
+    subheadline: "Let's navigate the future together, with our passionate, user-friendly approach to AI and automation.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Empowering Your Business Progress with AI",
+    subheadline: "Integrating cutting-edge technology and simple language to deliver value-driven AI solutions for your business.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Your Business: Supercharged by AI Innovation",
+    subheadline: "Blending technical expertise and simplicity to turbocharge your business growth and efficiency.",
+    withOrAnd: "with Digital Sanctum"
+  },
+  {
+    headline: "Elevating Your Business with AI, Automation",
+    subheadline: "Harnessing the power of advanced technology to inspire your business growth, foster innovation, and streamline processes.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Trailblazing Your Business Growth with AI",
+    subheadline: "Bridging the gap between technology and growth with our engaging, effective, and efficient AI and automation solutions.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Driving Your Business Breakthroughs with AI",
+    subheadline: "Reimagine your business potential through the lens of artificial intelligence, fostering a new era of efficiency and innovation.",
+    withOrAnd: "and Digital Sanctum"
+  },
+  {
+    headline: "Leading Your Business into the AI Revolution",
+    subheadline: "Transform your business by integrating intelligent automation, inspiring efficiency, and enabling unprecedented growth.",
+    withOrAnd: "with Digital Sanctum"
+  },
+];
+
+
 
 </script>
 
