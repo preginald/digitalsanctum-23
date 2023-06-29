@@ -1,23 +1,7 @@
 <template>
   <div>
-    <!-- Hero Section -->
-    <section ref="heroSection"
-      class="hero-section p-8 flex items-center justify-center bg-electric-blue-light dark:bg-electric-blue-dark"
-      :style="{ backgroundImage: heroBackgroundImage }">
-      <div class="container mx-auto px-4 sm:max-w-screen-lg">
-        <h1
-          class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-sky-400">{{ headline }}
-          </span> {{ withOrAnd }}
-        </h1>
-        <h2 class="text-xl mt-4 text-charcoal-dark dark:text-silver-light">
-          {{ subheadline }}
-        </h2>
-        <button @click="scrollToEmpower" class="btn-primary mt-4">
-          Empower Your Business
-        </button>
-      </div>
-    </section>
+
+    <SectionsHero :hero="content" :top="0" />
 
     <!-- Header and Navigation -->
     <div ref="navbar" class="navbar">
@@ -167,6 +151,13 @@ const scrollToServices = () => {
 const navbar = ref(null);
 let isNavSticky = false;
 
+const content = ref({
+  heading: "",
+  subHeading: "",
+  img: { dark: heroImg, light: heroImg },
+  cta: { text: "Empower your business", to: "#our-services" }
+})
+
 const handleScroll = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > navbar.value.offsetHeight && !isNavSticky) {
@@ -192,8 +183,9 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 
   let randomIndex = Math.floor(Math.random() * heroText.length);
-  headline.value = heroText[randomIndex].headline;
-  subheadline.value = heroText[randomIndex].subheadline;
+
+  content.value.heading = heroText[randomIndex].headline;
+  content.value.subHeading = heroText[randomIndex].subheadline;
   withOrAnd.value = heroText[randomIndex].withOrAnd;
 
 
