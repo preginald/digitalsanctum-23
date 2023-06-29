@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SectionsHero :hero="heroData" />
+    <SectionsHero :hero="heroData" top="0" />
 
     <!-- Header and Navigation -->
     <div ref="navbar" class="navbar">
