@@ -165,15 +165,15 @@ const navigationItems = computed(() => {
         return [
             {
                 type: "NuxtLink",
-                to: "/policies/terms-and-conditions",
-                text: "Terms & Conditions",
-                classes: `${defaultClasses} ${route.path === "/policies/terms-and-conditions" ? activeClassName : ""} ${hoverClasses}`,
-            },
-            {
-                type: "NuxtLink",
                 to: "/policies/privacy",
                 text: "Privacy",
                 classes: `${defaultClasses} ${route.path === "/policies/privacy" ? activeClassName : ""} ${hoverClasses}`,
+            },
+            {
+                type: "NuxtLink",
+                to: "/policies/terms-and-conditions",
+                text: "Terms & Conditions",
+                classes: `${defaultClasses} ${route.path === "/policies/terms-and-conditions" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the policies route
         ];
