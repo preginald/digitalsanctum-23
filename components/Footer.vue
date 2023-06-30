@@ -36,9 +36,6 @@
                                 Terms & conditions
                             </NuxtLink>
                         </li>
-                        <!-- <li>
-                                <a href="#" class="text-blue-400 hover:text-blue-300">Contact Us</a>
-                            </li> -->
                     </ul>
                 </div>
 
