@@ -53,7 +53,7 @@ const sendOption = async (option) => {
 
 onMounted(async () => {
     loading.value = true;
-    const fetch = useFetch('https://localhost:5000/api/conversation', {
+    const fetch = useFetch('http://localhost:5010/api/conversation', {
         body: JSON.stringify({ messages: [] }), // Send an empty array for the initial request
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
