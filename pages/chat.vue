@@ -32,7 +32,7 @@ const sendOption = async (option) => {
     const userMessage = { role: 'user', content: option };
     messages.value.push(userMessage);
 
-    const fetch = useFetch('http://localhost:5010/api/conversation', {
+    const fetch = useFetch('https://aitools.digitalsanctum.com.au/api/conversation', {
         body: JSON.stringify({ messages: [userMessage] }), // Send only the user message in the request
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ const sendOption = async (option) => {
 
 onMounted(async () => {
     loading.value = true;
-    const fetch = useFetch('http://localhost:5010/api/conversation', {
+    const fetch = useFetch('https://aitools.digitalsanctum.com.au/api/conversation', {
         body: JSON.stringify({ messages: [] }), // Send an empty array for the initial request
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
