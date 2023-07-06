@@ -76,6 +76,7 @@ const navClasses =
 
 
 const navClass = (item) => {
+    console.log("Jungle Brother")
     const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0 dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
     // const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
     const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
@@ -89,10 +90,6 @@ const navClass = (item) => {
     }
 }
 const navigationItems = computed(() => {
-    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0";
-    const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
-    const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
-
     if (route.path === "/") {
         return [
             {
