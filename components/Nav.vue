@@ -76,16 +76,12 @@ const navClasses =
 
 
 const navClass = (item) => {
-    console.log("Jungle Brother")
-    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0 dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
-    // const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
-    const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
+    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0 dark:hover:text-electric-blue-dark hover:text-vibrant-red-dark  md:hover:bg-transparent";
+    const activeClassName = "dark:text-electric-blue-light text-vibrant-red-light";
     if (item.type === "a") {
-        console.log(route.hash === item.href)
         return route.hash === item.href ? activeClassName + " " + defaultClasses : defaultClasses
     }
     if (item.type === "NuxtLink") {
-        console.log(route.fullPath === item.to)
         return route.fullPath === item.to ? activeClassName + " " + defaultClasses : defaultClasses
     }
 }
