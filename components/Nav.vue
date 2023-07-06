@@ -16,10 +16,10 @@
             <div :class="{ hidden: !menuOpen, block: menuOpen }" class="w-full md:block md:w-auto" id="navbar-default">
                 <ul :class="navClasses">
                     <li v-for="(item, index) in navigationItems" :key="index">
-                        <a v-if="item.type === 'a'" :href="item.href" :class="item.classes">
+                        <a v-if="item.type === 'a'" :href="item.href" :class="navClass(item)">
                             {{ item.text }}
                         </a>
-                        <NuxtLink v-else :to="item.to" :class="item.classes">
+                        <NuxtLink v-else :to="item.to" :class="navClass(item)">
                             {{ item.text }}
                         </NuxtLink>
                     </li>
@@ -74,10 +74,22 @@ const toggleTheme = () => {
 const navClasses =
     "list-none space-y-0 font-medium flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 mb-0 mr-5";
 
+
+const navClass = (item) => {
+    const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0 dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
+    // const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
+    const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
+    if (item.type === "a") {
+        return route.hash === item.href ? activeClassName + " " + defaultClasses : defaultClasses
+    }
+    if (item.type === "NuxtLink") {
+        return route.fullPath === item.to ? activeClassName + " " + defaultClasses : defaultClasses
+    }
+}
 const navigationItems = computed(() => {
     const defaultClasses = "block py-2 pl-3 pr-4 text-silver-dark rounded md:p-0";
-    const activeClassName = "text-electric-blue-dark dark:text-electric-blue-light";
-    const hoverClasses = "dark:hover:text-blue-900 dark:hover:text-vibrant-red-light  md:hover:bg-transparent";
+    const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
+    const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
 
     if (route.path === "/") {
         return [
@@ -85,26 +97,22 @@ const navigationItems = computed(() => {
                 type: "a",
                 href: "#our-services",
                 text: "Services",
-                classes: `${defaultClasses} ${route.hash === "#our-services" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "a",
                 href: "#ai-consulting",
                 text: "AI Consulting",
-                classes: `${defaultClasses} ${route.hash === "#ai-consulting" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "a",
                 href: "#contact",
                 text: "Contact",
-                classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "NuxtLink",
                 to: "/guides",
                 text: "Guides",
-                classes: `${defaultClasses} ${route.hash === "guides" ? activeClassName : ""} ${hoverClasses}`,
-            },
+            }
             // ... other items for the home route
         ];
     } else if (route.path === "/services/ai-consulting") {
@@ -113,25 +121,21 @@ const navigationItems = computed(() => {
                 type: "NuxtLink",
                 to: "/",
                 text: "Home",
-                classes: `${defaultClasses} ${route.hash === "/" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "a",
                 href: "#how-we-work",
                 text: "How we work",
-                classes: `${defaultClasses} ${route.hash === "#how-we-work" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "a",
                 href: "#value-proposition",
                 text: "Why Choose Us",
-                classes: `${defaultClasses} ${route.hash === "#value-proposition" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "a",
                 href: "#contact",
                 text: "Contact",
-                classes: `${defaultClasses} ${route.hash === "#contact" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the home route
         ];
@@ -141,13 +145,11 @@ const navigationItems = computed(() => {
                 type: "NuxtLink",
                 to: "/services/ai",
                 text: "Services",
-                classes: `${defaultClasses} ${route.hash === "/services" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "NuxtLink",
                 to: "/services/ai-consulting",
                 text: "AI Consulting",
-                classes: `${defaultClasses} ${route.hash === "/services/ai-consulting" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the home route
         ];
@@ -157,7 +159,6 @@ const navigationItems = computed(() => {
                 type: "NuxtLink",
                 to: "/guides",
                 text: "Guides",
-                classes: `${defaultClasses} ${route.hash === "guides" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the home route
         ];
@@ -167,13 +168,11 @@ const navigationItems = computed(() => {
                 type: "NuxtLink",
                 to: "/policies/privacy",
                 text: "Privacy",
-                classes: `${defaultClasses} ${route.path === "/policies/privacy" ? activeClassName : ""} ${hoverClasses}`,
             },
             {
                 type: "NuxtLink",
                 to: "/policies/terms-and-conditions",
                 text: "Terms & Conditions",
-                classes: `${defaultClasses} ${route.path === "/policies/terms-and-conditions" ? activeClassName : ""} ${hoverClasses}`,
             },
             // ... other items for the policies route
         ];
