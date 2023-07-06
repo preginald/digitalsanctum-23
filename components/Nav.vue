@@ -80,9 +80,11 @@ const navClass = (item) => {
     // const hoverClasses = "dark:hover:text-blue-900 hover:text-vibrant-red-light  md:hover:bg-transparent";
     const activeClassName = "dark:text-electric-blue-light text-vibrant-red-dark";
     if (item.type === "a") {
+        console.log(route.hash === item.href)
         return route.hash === item.href ? activeClassName + " " + defaultClasses : defaultClasses
     }
     if (item.type === "NuxtLink") {
+        console.log(route.fullPath === item.to)
         return route.fullPath === item.to ? activeClassName + " " + defaultClasses : defaultClasses
     }
 }
