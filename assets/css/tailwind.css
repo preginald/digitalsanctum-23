@@ -46,6 +46,10 @@ hr {
   @apply h-px my-3 bg-gray-200 border-0 dark:bg-gray-700;
 }
 
+select {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
 
 @layer components {
     .btn-primary {
@@ -63,4 +67,28 @@ hr {
     .bullets {
       @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400
     } 
+
+    .question-container {
+      @apply my-4 p-5 border border-gray-300 dark:border-gray-600 rounded-lg;
+    }
+
+  .checkbox-container {
+    @apply items-center my-4;
+  }
+
+  .input-checkbox-h {
+    @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600;
+  }
+
+  .checkbox-label {
+    @apply ml-2 mr-5 text-sm font-medium text-gray-900 dark:text-gray-300;
+  }
+
+  .card {
+    @apply block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-white
+  }
+
+  .card-sm {
+    @apply block max-w-sm my-2 p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-white
+  }
 }
