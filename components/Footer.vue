@@ -54,7 +54,7 @@
 
             <!-- Copyright -->
             <div class="text-center text-white text-sm">
-                <p class="text-silver-light">&copy; 2023 Digital Sanctum. All Rights Reserved.</p>
+                <p class="text-silver-light">&copy; <span id="currentYear"></span> Digital Sanctum. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -95,4 +95,12 @@ const guides = [
     },
     // Add more guide objects as needed
 ]
+
+onMounted(() => {
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+}) 
+
 </script>
