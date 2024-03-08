@@ -138,6 +138,11 @@ const navigationItems = computed(() => {
         return [
             {
                 type: "NuxtLink",
+                to: "/",
+                text: "Home",
+            },
+            {
+                type: "NuxtLink",
                 to: "/services/ai",
                 text: "Services",
             },
@@ -150,6 +155,11 @@ const navigationItems = computed(() => {
         ];
     } else if (route.path.startsWith("/guides")) {
         return [
+            {
+                type: "NuxtLink",
+                to: "/",
+                text: "Home",
+            },
             {
                 type: "NuxtLink",
                 to: "/guides",
